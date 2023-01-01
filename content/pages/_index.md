@@ -1,4 +1,4 @@
 ---
-title: "Articles"
+title: "Pages"
 ---
 <br>
