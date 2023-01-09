@@ -50,4 +50,6 @@ Source code
 
 ``geofdw`` is a collection of [PostGIS](http://postgis.net)-related [foreign data wrappers](https://wiki.postgresql.org/wiki/Foreign_data_wrappers) for [PostgreSQL](http://postgresql.org) written in Python using the [multicorn](http://multicorn.org) extension. By using a FDW, you can access spatial data through Postgres tables without having to import the data first, which can be useful for dynamic or non-tabular data available through web services.
 
-Source code: [geofdw](https://github.com/bosth/geofdw)
+{{< button href="https://github.com/bosth/geofdw/" target="_blank" >}}
+Source code
+{{< /button >}}

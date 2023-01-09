@@ -24,7 +24,7 @@ enableCodeCopy = true
 
 [footer]
  # showMenu = true
-  showCopyright = true
+  showCopyright = false
   showThemeAttribution = false
   showAppearanceSwitcher = true
   showScrollToTop = true

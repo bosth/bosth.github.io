@@ -25,7 +25,7 @@ The "mountain" in question here was actually the [Tur Abdin](https://en.wikipedi
 
 As a small aside, the journal *Mürşid-i Âsûriyûn* that this place name came from is interesting a in a few ways:
 * If the image above looks handwritten, that's because it was. The publisher, Âşûr Yûsuf, printed copies using a technique called [mimeography](https://en.wikipedia.org/wiki/Mimeograph).
-* The journal existed between 1909 and 1914 in the ancient city of Harpût, then a provincial capital and was mailed to subscribers across the Ottoman Empire and as far away as the United States.
+* The journal existed between 1909 and 1914 in the ancient city of Harpût, then a provincial capital and was mailed to subscribers across the Ottoman Empire and as far away as the United States. This preserved copy comes from a subscriber in Massachusetts.
 * Ottoman Turkish was usually written using the Arabic alphabet, but Âşûr Yûsuf used the Syriac alphabet in *Mürşid-i Âsûriyûn*.
 * This was the first journal to be printed in Ottoman Turkish with Syriac letters, but it was followed by several more. You could still find them being published in Lebanon and the United States into the 1930s.
 
@@ -44,7 +44,7 @@ It's interesting to compare his usage to some other notable topological features
 
 In the Arabic and the Ottoman cases where we find both *cebel* and *tûr*, speakers would have understood these names to mean something like "Tûr Mountain".
 
-When I originally read the passage above, I also transliterated the place name as *Cebel&#8209;i Tûr Dağı*, but looking at the text again, I can see that the author intended it to be read *Cebeltûr Dağı*. My original reading would have required a space between the first two words, so {{< sy  "ܔܒܠ ܛܘܪ ܛܐܓ݂" >}}, but that space is quite clearly not there.
+When I originally read the passage above, I also transliterated the place name as *Cebel&#8209;i Tûr Dağı*, but looking at the text again, I can see that the author intended it to be read *Cebeltûr Dağı*. My original reading would have required a space between the first two words, so {{< sy  "ܔܒܠ ܛܘܪ ܛܐܓ݂" >}}, but that space is quite clearly not there: {{< sy  "ܔܒܠܛܘܪ ܛܐܓ݂" >}}.
 
 And that, I suppose, is the difference. *Cebel-i Tûr* (with a space) was "Mount Tûr" and no *Dağ* was necessary or even possible. But *Cebeltûr* (no space) had become a set phrase much like *Penhul*. And it was acceptable for a Turkish-speaker to call this place *Cebeltûr Dağı*: "Mount Cebeltûr".
 

@@ -1,16 +1,13 @@
 ---
-title: "Multidimensional ADS-B data in PostGIS"
+title: "Multidimensional data in PostGIS"
 tags: [postgis, postgres, geospatial, ads-b, python]
-draft: true
 ---
 
 ## ADS-B data
 
-After reading about the online communities of volunteers that operate receivers to capture transmissions from [Automatic Dependent Surveillance-Broadcast](https://en.wikipedia.org/wiki/Automatic_Dependent_Surveillance%E2%80%93Broadcast) (ADS-B) equipment aboard aircraft, I became interested in working with this dataset using standard geospatial tools.
+Can standard geospatial tools be used with transmissions from [Automatic Dependent Surveillance-Broadcast](https://en.wikipedia.org/wiki/Automatic_Dependent_Surveillance%E2%80%93Broadcast) (ADS-B) equipment aboard aircraft? I wanted to find out because unlike most geospatial data, ADS-B has a third dimension *and* a fourth dimension.
 
-Unlike most geospatial data, ADS-B has a third dimension - the aircraft's altitude - but what makes ADS-B data even more unique is that it has a fourth, temporal, dimension.
-
-And that’s where this trip is going: PostGIS has multidimensional geometry types and functions, and I had never really had cause to use them despite having coded support for additional dimensions when I developed [plpygis](https://plpygis.readthedocs.io/en/latest/).
+My geospatial analysis tool of choice is PostGIS, which has multidimensional geometry types and functions, but I had never really had cause to use them despite having coded support for additional dimensions when I developed [plpygis](https://plpygis.readthedocs.io/en/latest/).
 
 This article describes the process of getting free ADS-B data, loading it into PostgreSQL and then manipulating it with PostGIS and Python.
 
@@ -455,9 +452,13 @@ Click <a href="map/index.html" target="_blank">here</a> to see the 3d model abov
 
 ### Four dimensions
 
-As I said above, a four-dimensional intersection would indicate a mid-air collision and hopefully there are not any of those in the data we are working with. However, what if we tried to find a near collision, for some value of *near*?
+#### Closest points of approach
 
-Currently this isn't going to be possible since all the data in the `flight` table comes from the same airplane (recall how the `get_aircraft_flights` function works). Let's add a new function that ingests all the tracks arriving or departing from a specific airport.
+A four-dimensional intersection is a mid-air collision, and Canada's Civil Aviation Daily Occurrence Reporting System has a queryable database of "occurrences" on the [Transport Canada website](https://wwwapps.tc.gc.ca/Saf-Sec-Sur/2/cadors-screaq/ws.aspx). By filtering on the string "TCAS"[^tcas], I found [the following incident](https://wwwapps.tc.gc.ca/saf-sec-sur/2/cadors-screaq/rd.aspx?occdtefrom%3d2022-06-12%26occdteto%3d2022-07-13%26srchfldcd%3d6%26txt%3dTCAS%26srchtype%3d1%26rt%3dWS%26hypl%3dy%26cnum%3d2022O1187):
+
+>  UPDATE: TSB Report #A22O0076: C-FAXD, a Boeing 737 MAX 8 aircraft operated by Sunwing Airlines Inc, was conducting flight SWG443 from Punta Cana International Airport (PUJ/MDPC), Dominican Republic, to Toronto Pearson International Airport (CYYZ), ON. While on final approach into CYYZ for Runway 33L, the flight crew received a Traffic Alert and Collision Avoidance System (TCAS) resolution advisory (RA) with C-GJVT, an Airbus 320-200 aircraft operated by Air Canada conducting flight ACA264 from Winnipeg/James Armstrong Richardson International Airport (CYWG), MB, to CYYZ, which was on final approach for Runway 33R. SWG443 followed the TCAS RA and aborted the approach to the left. Both aircraft came to a minimum lateral separation of 0.6 Nautical Miles and a minimum vertical separation of 500 feet. SWG443 was at an altitude of 3500 feet and ACA264 at 3000 feet, abeam to each other, on approach for Runways 33L and 33R. SWG443 and ACA264 landed without further incident. 
+
+I wanted to see if I could replicate this narrative in ADS-B data. The first problem is that all the data in the `flight` table comes from the same airplane, so I added a new function that ingests all the tracks arriving or departing from a specific airport.
 
 
 ```plpgsql
@@ -468,7 +469,7 @@ RETURNS
 AS $$
     OSUSER = 'YOUR_USERNAME'
     OSPW = 'YOUR_PASSWORD'
-    OSURL = "https://opensky-network.org/api"
+    OSURL = "Thttps://opensky-network.org/api"
 
     from datetime import datetime
     from dateutil import parser
@@ -508,6 +509,93 @@ AS $$
 $$ LANGUAGE plpython3u;
 ```
 
+I populated it with the flights to and from CYYZ on the date of the incident.
+
+```postgresql
+CREATE TABLE tcas (LIKE flight);
+```
+
+```postgresql
+INSERT INTO tcas
+SELECT
+  *
+FROM
+  get_airport_flights('CYYZ', '2022-06-18', '2022-06-18');
+```
+I could have ingested all the tracks for every row in the table, but since I already knew the affected flights, I just focused on those.
+
+```postgresql
+UPDATE
+  tcas
+SET
+  geom = get_track(icao24, dep_time)
+WHERE
+  callsign IN ('ACA264', 'SWG443');
+```
+
+After adding the tracks, the PostGIS function `ST_ClosestPointOfApproach` can tell us where along the timelines of two flights are they at their closest proximity. We will, however, want to have the geometry reprojected into a spatial reference system that makes distance calculations using metres - not latitude and longitude - since that is what the altitude is measured in. Since the data set is clustered around Victoria, EPSG:7991 is a good choice.
+
+`ST_ClosestPointOfApproach` finds the measure value at which two tracks are closest to one another. `ST_DistanceCPA`provides the actual three-dimensional distance between the two tracks at this closest point of approach.
+
+
+```postgresql
+WITH flights AS (
+  SELECT
+    a.callsign AS fa,
+    b.callsign AS fb,
+    ST_Transform(a.geom, 7991) AS ga,
+    ST_Transform(b.geom, 7991) AS gb
+  FROM
+    tcas AS a, tcas AS b
+  WHERE
+    a.callsign = 'ACA264' AND
+    b.callsign = 'SWG443'    
+), cpa AS (
+  SELECT
+    fa, fb, ga, gb,
+    ST_ClosestPointOfApproach(ga, gb) AS m
+  FROM
+    flights
+), points AS (
+  SELECT
+    fa,
+    fb,
+    ST_Force3DZ(ST_GeometryN(ST_LocateAlong(ga, m), 1)) AS pa,
+    ST_Force3DZ(ST_GeometryN(ST_LocateAlong(gb, m), 1)) AS pb,
+    ST_DistanceCPA(ga, gb) AS distance,
+    m
+  FROM
+    cpa
+)
+SELECT
+  to_timestamp(m) AT TIME ZONE 'UTC' AS time,
+  round(distance) AS separation,
+  round(ST_Distance(ST_Force2D(pa), ST_Force2D(pb))) AS lateral_separation,
+  round(abs(ST_Z(pa) - ST_Z(pb))) AS vertical_separation,
+  fa AS a,
+  fb AS b,
+  ST_AsText(ST_Transform(pa, 4326), 3) AS a_position,
+  ST_AsText(ST_Transform(pb, 4326), 3) AS b_position
+FROM
+  points;
+```
+
+According to Transport Canada, the lateral separation at 22:39 UTC should be 0.6 nautical miles, which is is 1111 metres, and the vertical separation should be approximately 500 feet. The ADS-B data doesn't exactly replicate those findings but it's not hugely far off.
+
+```
+        time         | separation | lateral_separation | vertical_separation |   a    |   b    |            a_position            |          b_position          
+---------------------+------------+--------------------+---------------------+--------+--------+----------------------------------+------------------------------
+ 2022-06-18 22:38:07 |       1119 |               1075 |                 310 | ACA264 | SWG443 | POINT Z (-79.448 43.542 604.234) | POINT Z (-79.457 43.536 914)
+```
+
+The altitude of the two flights does not match the altitudes stated by Transport Canada; however, the altitude reported by these two aircraft on the ground at Toronto was 0, so adding ~170m to account for the airport's elevation does bring us into that range.
+
+![Paths and closest points of approach for each aircraft](tcas.png "Flight tracks for ACA264 and SWG443 and their positions when at their closest")
+
+#### Searching for near misses
+
+Lastly, I wanted to see if there were any "close calls" like the one above that were *not* reported in the Transport Canada database.
+
 Let's load the in-bound and out-bound flights at Victoria International Airport (YYJ) on a single day:
 
 ```postgresql
@@ -517,8 +605,7 @@ SELECT
 FROM
   get_airport_flights('CYYJ', '2022-06-15', '2022-06-15');
 ```
-
-After adding the tracks (which could take a while even though YYJ isn't a particularly busy airport), the PostGIS function `ST_ClosestPointOfApproach` can tell us where along the timelines of two flights are they at their closest proximity. We will, however, want to have the geometry reprojected into a spatial reference system that makes distance calculations using metres - not latitude and longitude - since that is what the altitude is measured in. Since the data set is clustered around Victoria, EPSG:3005 is a good choice.
+From this we will see for all flights that have any temporal overlap, there is a single time at which the two flights were closest to one another.
 
 ```postgresql
 SELECT
@@ -532,7 +619,7 @@ WHERE
   ST_ClosestPointOfApproach(a.geom, b.geom) IS NOT NULL;
 ```
 
-From this we will see for all flights that have any temporal overlap, there is a single time at which the two flights were closest to one another. An abbreviated output would look like the following:
+An abbreviated output would look like the following:
 
 ```sql
              time              | flight_a | flight_b
@@ -549,7 +636,7 @@ From this we will see for all flights that have any temporal overlap, there is a
  2022-06-15 23:01:03+02        | ASP654   | CGBMO
 ```
 
-We can improve this by layering in some more analysis, including `ST_DistanceCPA`, which provides the actual three-dimensional distance between the two tracks at their closest point of approach (CPA). Let's say we want to find instances where two aircraft were within 1000 metres of one another:
+Let's say we want to find instances where two aircraft were within 1000 metres of one another:
 
 ```postgresql
 WITH flights AS (
@@ -574,7 +661,7 @@ WITH flights AS (
 )
 SELECT
   m AS unix_time,
-  round(sd) AS separation_distance,
+  round(sd) AS separation,
   fa AS flight_a,
   fb AS flight_b
 FROM
@@ -587,15 +674,15 @@ This gives us the following output, including one remarkable outlier where two p
 
 
 ```sql
-     unix_time      | separation_distance | flight_a | flight_b
---------------------+---------------------+----------+----------
-         1655318221 |                 782 | N90422   | N50KA
- 1655317602.2365394 |                  31 | CGGGO    | WEN3354
-  1655246393.916999 |                 984 | CGVEA    | CFSUV
- 1655253184.6499498 |                 996 | CGLDP    | JZA161
+     unix_time      | separation | flight_a | flight_b
+--------------------+------------+----------+----------
+         1655318221 |        782 | N90422   | N50KA
+ 1655317602.2365394 |         31 | CGGGO    | WEN3354
+  1655246393.916999 |        984 | CGVEA    | CFSUV
+ 1655253184.6499498 |        996 | CGLDP    | JZA161
 ```
 
-A separation of 31 metres is so small that it's worth double checking the data to see what those two aircraft were doing at exactly 1655317602.2365394!
+A separation of 31 metres is so small that it's worth double checking the data to see what those two aircraft were doing at exactly 1655317602.2365394.
 
 ```
 SELECT ST_AsText(geom)
@@ -637,20 +724,19 @@ From the points in flight CGGGO, we see that there were ADS-B state vectors reco
 
 What PostGIS is doing is interpolating the coordinates when the exact measure value does not exist in the data set:
 
-
 ```postrsql
 WITH point AS (
   SELECT
+    callsign,
     ST_GeometryN(ST_LocateAlong(ST_Transform(a.geom, 3005), 1655317602.2365394), 1) AS pa
   FROM
     flight AS a
   WHERE
-    a.callsign = 'CGGGO'
+    a.callsign in ('CGGGO', 'WEN3354')
 )
 SELECT
-  ST_X(pa) AS x,
-  ST_Y(pa) AS y,
-  ST_Z(pa) AS z
+  callsign,
+  ST_AsText(ST_Force3DZ(pa), 0) AS position
 FROM
   point;
 ```
@@ -658,90 +744,17 @@ FROM
 Compare the results with the table above and you'll see how the values fit between the two highlighted lines.
 
 ```sql
-      x      |     y      |    z
--------------+------------+---------
- 1218239.536 | 446149.454 | 579.730
-```
-
-You can repeat the same for the other flight and then apply a little Pythagorean theorem to see that the distance was, in fact, 31 metres between the two. Well ... sort of. Because of gaps in the ADS-B data, all PostGIS can do is *estimate* where the planes actually were. But if those estimates were correct, then the rest of the math does, in fact, check out!
-
-## Traffic collision risk detection
-
-The Civil Aviation Daily Occurrence Reporting System has a queryable database on the [Transport Canada website](https://wwwapps.tc.gc.ca/Saf-Sec-Sur/2/cadors-screaq/ws.aspx) and it's possible to dig up incident reports of near collisions.
-
-SRS 7991
-
-
-
-https://avrodex.com/view/2022O1187
-https://wwwapps.tc.gc.ca/saf-sec-sur/2/cadors-screaq/rd.aspx?occdtefrom%3d2022-06-12%26occdteto%3d2022-07-13%26srchfldcd%3d6%26txt%3dTCAS%26srchtype%3d1%26rt%3dWS%26hypl%3dy%26cnum%3d2022O1187
-
-> 2022-06-30: A Sunwing Airlines Boeing 737 MAX 8 (C-FAXD/SWG443) from Punta Cana, Dominican Republic (MDPC) to Toronto/Lester B. Pearson, ON (CYYZ) received a traffic alert and collision avoidance system (TCAS) resolution advisory (RA) while on approach for Runway 33L at CYYZ, which referenced an Air Canada Airbus A320-214 (C-GJVT/ACA264) from Winnipeg/James Armstrong Richardson, MB (CYWG) to Toronto/Lester B. Pearson, ON (CYYZ).
+ callsign |           position
+----------+------------------------------
+ CGGGO    | POINT Z (1218240 446149 580)
+ WEN3354  | POINT Z (1218249 446149 609)
 
 ```
-create table tcas (like flight);
-```
 
-```
-INSERT INTO tcas
-SELECT
-  *
-FROM
-  get_airport_flights('CYYZ', '2022-06-19', '2022-06-19');
-```
-
-```
-UPDATE
-  tcas
-SET
-  geom = get_track(icao24, dep_time)
-WHERE
-  callsign IN ('ACA264', 'SWG443');
-```
-
-
-```
-WITH flights AS (
-  SELECT
-    a.callsign AS fa,
-    b.callsign AS fb,
-    ST_Transform(a.geom, 7991) AS ga,
-    ST_Transform(b.geom, 7991) AS gb
-  FROM
-    tcas AS a, tcas AS b
-  WHERE
-    a.dep_time > b.dep_time AND
-    ST_ClosestPointOfApproach(a.geom, b.geom) IS NOT NULL
-), cpa AS (
-  SELECT
-    fa, fb, ga, gb,
-    ST_ClosestPointOfApproach(ga, gb) AS m
-  FROM
-    flights
-), points AS (
-  SELECT
-    fa,
-    fb,
-    ST_Force3DZ(ST_GeometryN(ST_LocateAlong(ga, m), 1)) AS pa,
-    ST_Force3DZ(ST_GeometryN(ST_LocateAlong(gb, m), 1)) AS pb,
-    m
-  FROM
-    cpa
-)
-SELECT
-  to_timestamp(m) AT TIME ZONE 'UTC' AS time,
-  round(ST_Distance(pa, pb)) AS distance,
-  ST_AsText(ST_Transform(pa, 4326)),
-  ST_AsText(ST_Transform(pb, 4326)),
-  fa,
-  fb
-FROM
-  points
-ORDER BY
-  distance;
-```
+Apply a little Pythagorean theorem and the distance was, in fact, 31 metres. Well ... sort of. Because of gaps in the ADS-B data, all PostGIS can do is *estimate* where the planes actually were. But if those estimates were correct, then the rest of the math does, in fact, check out!
 
 [^icao24]: These are also sometimes called Mode-S codes.
 [^case]: ICAO 24 numbers are often found in upper case online, but most OpenSky API endpoints accept them only in lower case.
 [^2]: Note that the latitude/longitude ordering switches between the `/states` and `/tracks` endpoints!
 [^table]: One disadvantage, however, is that the function is tied to this table.
+[^tcas]: Traffic Collision Avoidance System.
