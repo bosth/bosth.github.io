@@ -1,14 +1,9 @@
 ---
-title: "Ottoman Süryânî"
+title: "The Ottoman Süryânî"
 tags: [ottoman, syriac, history]
-draft: true
 ---
 
-I did my graduate studies at [Boğaziçi Üniversitesi](http://www.boun.edu.tr/) in Istanbul under the direction of the late [Vangelis Kechriotis](https://www.degruyter.com/document/doi/10.1515/soeu-2015-630408/html). My research topic was the *Süryânî* community during the Second Constitutional Period, and in particular the intellectuals who encouraged the "awakening" of their people from what they considered to be an era of "ignorance" - or in the language of the day *hâb-ı gaflet*.
-
-## On the term *Süryânî*
-
-
+I did my graduate studies at [Boğaziçi Üniversitesi](http://www.boun.edu.tr/) in Istanbul under the direction of the [Vangelis Kechriotis](https://www.degruyter.com/document/doi/10.1515/soeu-2015-630408/html). My research topic was the Ottoman *Süryânî* (Syriac) community during the Second Constitutional Period.
 
 ## Publications
 

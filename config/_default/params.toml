@@ -9,7 +9,7 @@ colorScheme = "blowfish"
 defaultAppearance = "light" # valid options: light or dark
 autoSwitchAppearance = true
 
-enableSearch = true
+enableSearch = false
 enableCodeCopy = true
 
 # mainSections = ["section1", "section2"]
@@ -81,6 +81,7 @@ enableCodeCopy = true
   groupByYear = false
   cardView = true
   cardViewScreenWidth = false
+  constrainItemsWidth = false
 
 [sitemap]
   excludedKinds = []
