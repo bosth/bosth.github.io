@@ -333,9 +333,7 @@ Z3 finds a nice balance between rockets and Ion Thrusters, with the Ion Thruster
 
 I put all of this and more together into a Python package to solve many (but not all) Leaving Earth missions, including rules from Outer Planets and Stations. It's a command-line tool that works like this:
 
-{{< button href="https://github.com/bosth/les/" target="_blank" >}}
-Source code
-{{< /button >}}
+{{< github repo="bosth/leaving-earth-solver" >}}
 
 ### Usage
 
