@@ -1,6 +1,7 @@
 ---
 title: "Mount Mountain Mountain"
 tags: [ottoman, syriac, history, language]
+date: 2016-01-01
 ---
 
 {{< lead >}}

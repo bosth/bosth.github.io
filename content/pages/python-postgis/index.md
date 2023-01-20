@@ -1,6 +1,7 @@
 ---
 title: "Python for PostGIS"
 tags: [python, postgis, postgresql, geospatial]
+date: 2017-08-01
 ---
 
 I authored two Python modules that make it easier to use geospatial Python from within your PostgreSQL database.

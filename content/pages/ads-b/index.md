@@ -1,6 +1,7 @@
 ---
 title: "Multidimensional data in PostGIS"
 tags: [postgis, postgres, geospatial, ads-b, python]
+date: 2022-07-01
 ---
 
 ## ADS-B data

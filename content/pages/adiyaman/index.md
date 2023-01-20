@@ -1,6 +1,7 @@
 ---
 title: "Adıyamanlı Süryânîler"
 tags: [ottoman, history, syriac]
+date: 2015-01-01
 ---
 
 {{< lead >}}
