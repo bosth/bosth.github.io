@@ -534,7 +534,7 @@ WHERE
   callsign IN ('ACA264', 'SWG443');
 ```
 
-After adding the tracks, the PostGIS function `ST_ClosestPointOfApproach` can tell us where along the timelines of two flights are they at their closest proximity. We will, however, want to have the geometry reprojected into a spatial reference system that makes distance calculations using metres - not latitude and longitude - since that is what the altitude is measured in. Since the data set is clustered around Victoria, EPSG:7991 is a good choice.
+After adding the tracks, the PostGIS function `ST_ClosestPointOfApproach` can tell us where along the timelines of two flights are they at their closest proximity. We will, however, want to have the geometry reprojected into a spatial reference system that makes distance calculations using metres - not latitude and longitude - since that is what the altitude is measured in. Since the data set is clustered around Toronto, EPSG:7991 is a good choice.
 
 `ST_ClosestPointOfApproach` finds the measure value at which two tracks are closest to one another. `ST_DistanceCPA`provides the actual three-dimensional distance between the two tracks at this closest point of approach.
 
