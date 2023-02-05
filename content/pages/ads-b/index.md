@@ -194,7 +194,7 @@ Start by enabling PL/Python:
 CREATE LANGUAGE plpython3u;
 ```
 
-Let’s start with a simple function that gets a list of flights an aircraft took between two dates.
+Let’s start with a simple function that gets a list of flights an aircraft took between two dates. I provided my OpenSky credentials in the environment variables ``OPENSKY_USER`` and ``OPENSKY_PASS``, but they could also be set directly in the script.
 
 ```plpgsql
 CREATE OR REPLACE FUNCTION
@@ -202,8 +202,9 @@ CREATE OR REPLACE FUNCTION
 RETURNS
     TABLE (LIKE flight)
 AS $$
-    OSUSER = 'YOUR_USERNAME'
-    OSPW = 'YOUR_PASSWORD'
+    import os
+    OSUSER = os.getenv("OPENSKY_USER")
+    OSPASS = os.getenv("OPENSKY_PASS")
     OSURL = "https://opensky-network.org/api"
 
     from datetime import datetime
@@ -217,7 +218,7 @@ AS $$
     de = int(de.timestamp())
 
     opensky = Session()
-    opensky.auth = HTTPBasicAuth(OSUSER, OSPW)
+    opensky.auth = HTTPBasicAuth(OSUSER, OSPASS)
 
     res = opensky.get(
               OSURL + "/flights/aircraft/",
@@ -253,8 +254,9 @@ CREATE OR REPLACE FUNCTION
 RETURNS
     GEOMETRY(LINESTRINGZM, 4326)
 AS $$
-    OSUSER = 'YOUR_USERNAME'
-    OSPW = 'YOUR_PASSWORD'
+    import os
+    OSUSER = os.getenv("OPENSKY_USER")
+    OSPASS = os.getenv("OPENSKY_PASS")
     OSURL = "https://opensky-network.org/api"
 
     from datetime import datetime
@@ -267,7 +269,7 @@ AS $$
     dt = int(dt.timestamp())
 
     opensky = Session()
-    opensky.auth = HTTPBasicAuth(OSUSER, OSPW)
+    opensky.auth = HTTPBasicAuth(OSUSER, OSPASS)
 
     res = opensky.get(
                 OSURL + "/tracks/",
@@ -468,8 +470,9 @@ CREATE OR REPLACE FUNCTION
 RETURNS
     TABLE (LIKE flight)
 AS $$
-    OSUSER = 'YOUR_USERNAME'
-    OSPW = 'YOUR_PASSWORD'
+    import os
+    OSUSER = os.getenv("OPENSKY_USER")
+    OSPASS = os.getenv("OPENSKY_PASS")
     OSURL = "Thttps://opensky-network.org/api"
 
     from datetime import datetime
@@ -483,7 +486,7 @@ AS $$
     de = int(de.timestamp())
 
     opensky = Session()
-    opensky.auth = HTTPBasicAuth(OSUSER, OSPW)
+    opensky.auth = HTTPBasicAuth(OSUSER, OSPASS)
 
     for endpoint in ["arrival", "departure"]:
       res = opensky.get(
