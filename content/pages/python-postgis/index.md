@@ -36,7 +36,7 @@ SELECT swap(geom) FROM city;
 
 I spoke about **plpygis** at FOSS4G 2017 in Boston. The slides are [here](https://2017.foss4g.org/post_conference/Extending-PostGIS-with-Python.pdf) and a video of the talk is also available.
 
-{{< vimeo 248099711 >}}
+{{< vimeo id="248099711" title="Extending PostGIS with Python" >}}
 
 <br />
 
