@@ -29,7 +29,7 @@ smartTOCHideUnfocusedChildren = false
 [footer]
  # showMenu = true
   showCopyright = false
-  showThemeAttribution = false
+  showThemeAttribution = true
   showAppearanceSwitcher = true
   showScrollToTop = true
 
@@ -40,8 +40,8 @@ smartTOCHideUnfocusedChildren = false
   showRecentItems = 3
   showMoreLink = true
   showMoreLinkDest = "/pages"
-  cardView = true
   cardViewScreenWidth = false
+  cardView = true
   layoutBackgroundBlur = true # only used when layout equals background
 
 [article]
