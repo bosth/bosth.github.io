@@ -29,7 +29,7 @@ A simple mission plan for a spacecraft travelling from Earth to the Lunar surfac
 | Maneuver                   | Difficulty | Rockets Used | Payload                        | Required Thrust |
 |----------------------------|------------|--------------|--------------------------------|-----------------|
 | Earth to Earth Orbit       | 8          | Saturn (20)  | Atlas (4), Juno (1), Probe (1) | 26 × 8          |
-| Earth Orbit to Lunar Orbit | 3          | Atlas (4)    | Juno (1), Probe (1)            |  6 × 8          |
+| Earth Orbit to Lunar Orbit | 3          | Atlas (4)    | Juno (1), Probe (1)            |  6 × 3          |
 | Lunar Orbit to Moon        | 2          | Juno (1)     | Probe (1)                      |  2 × 2          |
  
 As long as the rockets used in each stage of this mission can product the required thrust, then the maneuver can be completed. In the example above, a Saturn rocket produces 200 thrust, an Atlas 27 thrust and a Juno 4, so each maneuver succeeds.
@@ -231,7 +231,7 @@ Earth to Mercury with a two stage launch? ``maneuvers = [3, 5, 3, 5, 2, 2]``
 
 Ion Thrusters work a little differently: they can't be used for maneuvers travelling to or from celestial bodies; they are not expended when they are used; they produce 5 thrust for every year the journey takes. As an example, if a spacecraft composed of a Probe (mass 1) and an Ion Thruster (mass 1) travels from Earth Orbit to Lunar Orbit, then the journey will take 2 years to complete. The same formula - *thrust required = mass × difficulty* - applies, giving (1+1) × 3 = 6. Ion Thrusters generate 5 thrust per year so one year of travel would only provide 5 thrust and we need 6, hence two years.
 
-Since Ion Thrusters are not expended, they are very efficient as long as you aren't in a hurry - remember this a space *race*.
+Since Ion Thrusters are not expended, they are very efficient as long as you aren't in a hurry, but remember Leaving Earth is a *race* to get points!
 
 Let's add support for Ion Thrusters to the code above. First we need to add the Ion Thrusters' mass and cost *once* but add their thrust at each stage. Second, we need to introduce a new variable for the number of years each maneuver takes.
 
