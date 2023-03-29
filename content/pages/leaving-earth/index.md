@@ -22,7 +22,7 @@ The core mechanic in Leaving Earth is planning the missions using a variety of r
 
 {{< figure src="lunarorbit.jpg" caption="From a Lunar orbit, a spacecraft may land on the Moon or fly back to an Earth Orbit" >}}
 
-The key concept is that each maneuver has a difficulty - roughly approximating [Delta-*v*](https://en.wikipedia.org/wiki/Delta-v) - and each rocket can produce a certain amount of thrust. The amount of thrust required to perform a maneuver is based on this simple formula: *thrust required = mass × difficulty*. The final factor, mass, is determined by the number of components aboard the spacecraft.
+The key concept is that each maneuver has a difficulty - roughly approximating [Delta-*v*](https://en.wikipedia.org/wiki/Delta-v) - and each rocket can produce a certain amount of thrust, at which point it is expended.[^expended] The amount of thrust required to perform a maneuver is based on this simple formula: *thrust required = mass × difficulty*. The final factor, mass, is determined by the number of components aboard the spacecraft.
 
 A simple mission plan for a spacecraft travelling from Earth to the Lunar surface might look like the following (the numbers in parentheses indicates the mass of that component):
 
@@ -170,7 +170,7 @@ graph TD
 
 The key here is to express this mission *backwards*; in other words, we'll make sure we can travel from Lunar Orbit to the Moon first and then ensure we can travel from Earth Orbit to Lunar Orbit.
 
-And crucially, the payload gets larger and larger as we move backwards in the mission by the number of rockets that *will be* expended in the future:
+And crucially, the payload gets larger and larger as we move backwards in the mission by the number of rockets that *will be* expended in the future (remember that once a rocket is used, it is removed from the spacecraft):
 
 | Stage | Maneuver                         | Difficulty | Payload                             |
 |-------|----------------------------------|------------|-------------------------------------|
@@ -309,7 +309,7 @@ Now suddenly, Z3 wants us to use expendable rockets for each maneuver because th
 
 ### Controlling costs
 
-In order to controlling spiralling program costs, we can add an additional constraint on how much is spent on a mission. Let's say we are budgeting $25 on our mission to Mercury from Earth Orbit. We still want it completed as fast as possible, but it has to fall blow this budget.
+In order to controlling spiralling program costs, we can add an additional constraint on how much is spent on a mission. Let's say we are budgeting $25 on our mission to Mercury from Earth Orbit. We still want it completed as fast as possible, but it has to fall below this budget.
 
 ```python
 solver.add(cost <= 25)
@@ -542,4 +542,5 @@ By default, ``les`` will try to predict a few plausible paths and solve for each
 
 It also can make use of aerobraking, slingshot maneuvers and Proton rockets from the expansions. It doesn't support the reusable shuttles, however, and it won't increase or decrease the difficulty of maneuvers to change travel times. The biggest missing feature, however, is probably not being able to plan return missions (e.g. going to the Moon and back again).
 
+[^expended]: When a rocket is expended, its card is discarded and it is no longer part of the spacecraft. 
 [^years]: Leaving Earth players will note that some maneuvers take a minimum amount of time even with rockets, but I am ignoring that for the moment.
