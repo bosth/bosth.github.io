@@ -71,8 +71,6 @@ The [JSON](https://www.json.org/)-encoded response looks like the following:
 
 The data transmitted by the aircraft is stored in the list of states and can be decoded through the [OpenSky documentation](https://openskynetwork.github.io/opensky-api/rest.html#response). From this you know that the aircraft was operating as [Air France 57AG](https://flightaware.com/live/flight/AFR57AG), that it recorded a barometric altitude of 2263.14 meters, that it had a ground speed of 100.86 meters/second and so on.
 
-Back to my Il-76 in Tashkent, [planefinder](https://planefinder.net/data/aircraft/UK-76428) tells me that the ICAO 24 code associated with UK-76428 is `507f87`. As it turns out, OpenSky doesn’t have any records of that particular airplane flying, which is, I suppose, an answer to my original question of what these planes might be up to: not much, or at least not much in the range of a receiver operated by someone participating in the OpenSky Network. But there are plenty of other planes in the sky to look at!
-
 #### Tracks
 
 OpenSky simplifies getting a series of state vectors by providing a tracks API endpoint, and although [the documentation](https://openskynetwork.github.io/opensky-api/rest.html#track-by-aircraft) states that this endpoint is [experimental](https://github.com/openskynetwork/opensky-api/commit/fba493cfee35dfc6f1d1f01f84f68c4d04ab781d), I’ve had success in using it: https://opensky-network.org/api/tracks/?icao24=39ad00&time=1649692883.
