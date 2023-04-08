@@ -24,7 +24,7 @@ smartTOC = false
 smartTOCHideUnfocusedChildren = false
 
 [header]
-  layout = "basic" # valid options: basic, fixed, fixed-fill, fixed-fill-blur
+  layout = "fixed-fill-blur" # valid options: basic, fixed, fixed-fill, fixed-fill-blur
 
 [footer]
  # showMenu = true
@@ -53,6 +53,7 @@ smartTOCHideUnfocusedChildren = false
   showHero = true
   heroStyle = "background" # valid options: basic, big, background, thumbAndBackground
   layoutBackgroundBlur = true # only used when heroStyle equals background or thumbAndBackground
+  layoutBackgroundHeaderSpace = true # only used when heroStyle equals background
   showBreadcrumbs = false
   showDraftLabel = true
   showEdit = false
@@ -68,7 +69,7 @@ smartTOCHideUnfocusedChildren = false
   showAuthorsBadges = false 
   showWordCount = false
   showSummary = true
-  sharingLinks = [] # [ "linkedin", "twitter", "whatsapp", "pinterest", "reddit", "facebook", "email"]
+  # sharingLinks = [ "linkedin", "twitter", "reddit", "pinterest", "facebook", "email"]
 
 [list]
   showHero = true
@@ -109,7 +110,6 @@ smartTOCHideUnfocusedChildren = false
   #groupByYear = false
   #cardViewScreenWidth = false
   #cardView = false
-
 
 [firebase]
   # apiKey = "XXXXXX"

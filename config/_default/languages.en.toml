@@ -7,7 +7,7 @@ rtl = false
 
 title = "Benjamin Trigona-Harany | jaxartes.net"
 # logo = "img/logo.png"
-# description = "My awesome website"
+description = "Personal website for Benjamin Trigona-Harany"
 # copyright = "Copy, _right?_ :thinking_face:"
 
 dateFormat = "2 January 2006"
