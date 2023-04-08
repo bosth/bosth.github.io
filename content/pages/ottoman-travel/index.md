@@ -130,11 +130,12 @@ Using Dijkstra's algorithm and the data from the 1899 map, I calculated the opti
 * Tokat to Ünye via Gümenek, Niksar, Karakuş (chaussee, 1d)
 * Ünye to Selânik via Samsun, İstanbul, Gelibolu, Çanakkale (ship, 2d)
 
-![Route arriving in Selânik](selanik.webp "The last leg of the journey is a ship from Istanbul via the Dardanelles")
 
 ## An Application
 
-I published a simple web application as "Ottoman Route Finder" at https://jaxartes.net/orf/.
+I published a simple web application as "Ottoman Route Finder" at https://jaxartes.net/orf/ so anyone can calculate that it takes about six days and ten hours to travel from Devebağırtan Kapısı (me neither) to İd.
+
+![Route plan](devebagirtankapisi.webp "Route plan from Devebağırtan Kapısı in the Balkans to İd near Erzurum")
 
 In addition to PostgreSQL, PostGIS and pgRouting, the tech stack includes [GeoServer](https://geoserver.org/) to expose the database via a Web Feature Service (WFS) and [OpenLayers](https://openlayers.org/) as a web-mapping library.
 
