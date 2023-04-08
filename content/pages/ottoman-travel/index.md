@@ -133,7 +133,7 @@ Using Dijkstra's algorithm and the data from the 1899 map, I calculated the opti
 
 ## An Application
 
-I published a simple web application as "Ottoman Route Finder" at https://jaxartes.net/orf/ so anyone can calculate that it takes about six days and ten hours to travel from Devebağırtan Kapısı (me neither) to İd.
+I published a simple web application as "Ottoman Route Finder" at https://www.jaxartes.net/ottoman-route-finder/ so anyone can calculate that it takes about six days and ten hours to travel from Devebağırtan Kapısı (me neither) to İd.
 
 ![Route plan](devebagirtankapisi.webp "Route plan from Devebağırtan Kapısı in the Balkans to İd near Erzurum")
 
