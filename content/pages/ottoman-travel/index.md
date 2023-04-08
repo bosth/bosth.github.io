@@ -124,11 +124,11 @@ As a proof-of-concept, I digitised a significant part of the 1899 map, encoding 
 
 Network analysis for point-to-point travel is a well-understood problem, and [pgRouting](https://pgrouting.org/) implements [Dijkstra's algorithm](https://en.wikipedia.org/wiki/Dijkstra's_algorithm) to find the lowest-cost path between two nodes, using the hours listed on the map as the cost of each edge.
 
-Using Dijkstra's algorithm and the data from the 1899 map, I calculated the optimal route between Sivas and Selânik would have taken approximately four days:
+Using Dijkstra's algorithm and the data from the 1899 map, I calculated the optimal route between Sivas and Selânik would have taken almost five days:
 
 * Sivas to Tokat via Kargın (road, 16h)
-* Tokat to Ünye via Gümenek, Niksar, Karakuş (chaussee, 1d)
-* Ünye to Selânik via Samsun, İstanbul, Gelibolu, Çanakkale (ship, 2d)
+* Tokat to Ünye via Gümenek, Niksar, Karakuş (chaussee, 1 day, 5 hours)
+* Ünye to Selânik via Samsun, İstanbul, Gelibolu, Çanakkale (ship, 3 days)
 
 
 ## An Application
