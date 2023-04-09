@@ -88,7 +88,7 @@ The oldest map that I have found dates back to 1272 [1855/1856], although the bo
 
 ![Thrace and the Dardanelles](featured.webp "Connections in Thrace and the Dardanelles")
 
-![Varna](varna.webp "Travel times from Varna")
+![Varna](map_1856_varna.webp "Travel times from Varna")
 
 #### Ottoman map from 1891/1892
 
