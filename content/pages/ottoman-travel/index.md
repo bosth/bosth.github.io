@@ -61,7 +61,7 @@ The first sources are the provincial *sâlnâme*s, annals or almanacs published 
     <td class="tg-1zis">6</td>
   </tr>
   <tr>
-    <td class="tg-pjk6">Âdilcevâz'a olanmesâfesi</td>
+    <td class="tg-pjk6">Âdilcevâz'a olan mesâfesi</td>
     <td class="tg-1zis">12</td>
   </tr>
 </tbody>
