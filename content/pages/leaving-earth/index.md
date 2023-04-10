@@ -57,7 +57,7 @@ Let's take the difficulty 5 maneuver from Earth to Suborbital Flight and rewrite
 
 {{< figure src="leavingearth_tabletop.jpg" alt="The Leaving Earth map" >}}
 
-The question we want to solve is how many Saturn and how many Soyuz rockets are needed to move a mass of, say, 1 from Earth to Suborbital. In other words, we want to find the values of two variables, ``saturn`` and ``soyuz``, such that they satisfy a set of constraints.
+The question we want to solve is how many Saturn and how many Soyuz rockets are needed to move a mass of, say, 2 from Earth to Earth Orbit. In other words, we want to find the values of two variables, ``saturn`` and ``soyuz``, such that they satisfy a set of constraints.
 
 The first two constraints are that both variables must be greater or equal to zero (we don't allow negative numbers of rockets):
 * ``saturn ≥ 0``
@@ -66,23 +66,37 @@ The first two constraints are that both variables must be greater or equal to ze
 Next, our Leaving Earth formula *thrust required = mass × difficulty* needs to be rewritten slightly as *thrust produced ≥ mass × difficulty*; in other words, we need to make sure that the thrust produced by the Saturn and Soyuz rockets that we use is large enough.
 
 To write this constraint, first consider what we know:
-* payload = 1
+* payload = 2
 * thrust produced = ``saturn`` × 200 + ``soyuz`` × 80
 * mass = ``saturn`` × 20 + ``soyuz`` × 9 + payload
-* difficulty = 5
+* difficulty = 8
 
 Then bring this information together as a third and final constraint:
-* ``saturn × 200 + soyuz × 80 ≥ (saturn × 20 + soyuz × 9 + 1) × 5``
+* ``saturn × 200 + soyuz × 80 ≥ (saturn × 20 + soyuz × 9 + 2) × 5``
 
 Let's propose a hypothetical solution to the problem that is ``saturn = 0, soyuz = 1``. To check if this is a solution we need to ensure that the three constraints are satisfied. 
 
 1. ``saturn ≥ 0``: 0 is greater or equal to 0
 2. ``soyuz ≥ 0``: 1 is greater or equal to 0
-3. ``saturn × 200 + soyuz × 80 ≥ (saturn × 20 + soyuz × 9 + 1) × 5``: 80 > 50
+3. ``saturn × 200 + soyuz × 80 ≥ (saturn × 20 + soyuz × 9 + 2) × 8``: 80 ≥ 88
 
-Since we satisfy the constraints, this is a valid solution. In fact, any number of rockets will satisfy this CSP (e.g. ``saturn = 1, soyuz = 0``, ``saturn = 1, soyuz = 1`` and ``saturn = 5, soyuz = 3`` are all valid solutions).
+Unfortunately, we do *not* satisfy the third constraints, so this is not a valid solution; a single Soyuz rocket is not powerful enough to carry this payload into Earth Orbit. What if we try again with two Soyuz rockets?
 
-Now if the payload size increased from 1 to, say, 10, and we allowed all the different rocket types, then the set of solutions is perhaps not so obvious.
+1. ``saturn ≥ 0``: 0 is greater or equal to 0
+2. ``soyuz ≥ 0``: 2 is greater or equal to 0
+3. ``saturn × 200 + soyuz × 80 ≥ (saturn × 20 + soyuz × 9 + 2) × 8``: 160 ≥ 160
+
+The final constraint is now satisfied, and this two-engine spacecraft is able to boost a payload of mass 2 into Earth Orbit!
+
+Finally, if we used a single Saturn rocket, we also have a valid solution:
+
+1. ``saturn ≥ 0``: 1 is greater or equal to 0
+2. ``soyuz ≥ 0``: 0 is greater or equal to 0
+3. ``saturn × 200 + soyuz × 80 ≥ (saturn × 20 + soyuz × 9 + 2) × 8``: 200 ≥ 176
+
+In fact, any combination of two or more Saturn and Soyuz rockets will satisfy this CSP (e.g. ``saturn = 2, soyuz = 0``, ``saturn = 1, soyuz = 1`` and ``saturn = 5, soyuz = 3`` are all valid solutions).
+
+Now if the payload size increased from 2 to, say, 10, and we allowed all the different rocket types modelled in Leaving Earth, then the set of solutions is perhaps not so obvious.
 
 ## Z3 theorem prover
 
