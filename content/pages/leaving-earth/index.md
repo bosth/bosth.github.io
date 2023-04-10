@@ -104,7 +104,7 @@ This is where a CSP solver comes in handy. Z3 is a toolkit for solving CSPs with
 
 ### Solving a single maneuver
 
-Rewriting the CSP above in Z3 would look like this:
+Rewriting the CSP above in Z3 for a payload of 10 and a maneuver of difficulty 5 would look like this:
 
 ```python
 from z3 import solve, Int
