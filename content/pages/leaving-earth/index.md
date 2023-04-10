@@ -53,7 +53,7 @@ There are many other mission planning complexities: Ion Thrusters, which are not
 
 So how can Leaving Earth's mission planning be reduced to a [Constraint Satisfaction Problem](https://en.wikipedia.org/wiki/Constraint_satisfaction_problem) (CSP)?
 
-Let's take the difficulty 5 maneuver from Earth to Suborbital Flight and rewrite it as a CSP. To simplify things, we'll assume that there are only Saturn and Soyuz rockets available.
+Let's take the difficulty 8 maneuver from Earth to Earth Orbit and rewrite it as a CSP. To simplify things, we'll assume that there are only Saturn and Soyuz rockets available.
 
 {{< figure src="leavingearth_tabletop.jpg" alt="The Leaving Earth map" >}}
 
@@ -72,7 +72,7 @@ To write this constraint, first consider what we know:
 * difficulty = 8
 
 Then bring this information together as a third and final constraint:
-* ``saturn × 200 + soyuz × 80 ≥ (saturn × 20 + soyuz × 9 + 2) × 5``
+* ``saturn × 200 + soyuz × 80 ≥ (saturn × 20 + soyuz × 9 + 2) × 8``
 
 Let's propose a hypothetical solution to the problem that is ``saturn = 0, soyuz = 1``. To check if this is a solution we need to ensure that the three constraints are satisfied. 
 
