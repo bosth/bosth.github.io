@@ -32,13 +32,17 @@ The ATR-42 in the image above has moved between three airlines and therefore bee
 
 The [The OpenSky Network](https://opensky-network.org/) provides free access to ADB-S data via a RESTful API. There is a [Python client](https://openskynetwork.github.io/opensky-api/python.html), but I did not use it since it doesn’t implement everything that is available directly through the API.
 
-An ICAO 24 address[^case] is the basis for most OpenSky API calls, although it is possible to request data by searching for activity at a particular airport or region.
+{{< alert "circle-info" >}}
+Bringing up OpenSky: A large-scale ADS-B sensor network for research
+Matthias Schäfer, Martin Strohmeier, Vincent Lenders, Ivan Martinovic, Matthias Wilhelm
+ACM/IEEE International Conference on Information Processing in Sensor Networks, April 2014
+{{< /alert >}}
 
-I created a free OpenSky account since the API documentation states that the [rate limits](https://openskynetwork.github.io/opensky-api/rest.html#limitations) are stricter for anonymous users. And although my experience is that the API behaviour does not always match the documentation, it seemed like a good idea to do what they recommend in this case.
+Anyone may create an OpenSky account as long as they follow the site's [terms of use](https://opensky-network.org/about/terms-of-use).
 
 #### State vectors
 
-Equipped with an ICAO 24 number, I retrieved some actual flight data provided by OpenSky. A basic query also requires a specific time, with that time being represented as the number of seconds elapsed since the 1st of January 1970 (otherwise known as UNIX time). For example, the position of the ATR-42 above at 16:01:23 on the 11th of April, 2022 is requested by https://opensky-network.org/api/states/all?icao24=39ad00&time=1649692883.
+Equipped with an ICAO 24 number, I retrieved some actual flight data provided by OpenSky. A basic query also requires a specific time, with that time being represented as the number of seconds elapsed since the 1st of January 1970 (otherwise known as UNIX time). For example, the position of the ATR-42 above at 16:01:23 on the 11th of April, 2022 is requested by https://opensky-network.org/api/states/all?icao24=39ad00&time=1649692883.[^case]
 
 The [JSON](https://www.json.org/)-encoded response looks like the following:
 
@@ -756,7 +760,7 @@ Compare the results with the table above and you'll see how the values fit betwe
 Apply a little Pythagorean theorem and the distance was, in fact, 31 metres. Well ... sort of. Because of gaps in the ADS-B data, all PostGIS can do is *estimate* where the planes actually were. But if those estimates were correct, then the rest of the math does, in fact, check out!
 
 [^icao24]: These are also sometimes called Mode-S codes.
-[^case]: ICAO 24 numbers are often found in upper case online, but most OpenSky API endpoints accept them only in lower case.
 [^2]: Note that the latitude/longitude ordering switches between the `/states` and `/tracks` endpoints!
 [^table]: One disadvantage, however, is that the function is tied to this table.
 [^tcas]: Traffic Collision Avoidance System.
+[^case]: ICAO 24 numbers are often found in upper case online, but most OpenSky API endpoints accept them only in lower case.
