@@ -30,13 +30,7 @@ The ATR-42 in the image above has moved between three airlines and therefore bee
 
 ### The OpenSky Network
 
-The [The OpenSky Network](https://opensky-network.org/) provides free access to ADB-S data via a RESTful API. There is a [Python client](https://openskynetwork.github.io/opensky-api/python.html), but I did not use it since it doesn’t implement everything that is available directly through the API.
-
-{{< alert "circle-info" >}}
-Bringing up OpenSky: A large-scale ADS-B sensor network for research
-Matthias Schäfer, Martin Strohmeier, Vincent Lenders, Ivan Martinovic, Matthias Wilhelm
-ACM/IEEE International Conference on Information Processing in Sensor Networks, April 2014
-{{< /alert >}}
+The [The OpenSky Network](https://opensky-network.org/) provides free access to ADB-S data via a RESTful API. There is a [Python client](https://openskynetwork.github.io/opensky-api/python.html), but I did not use it since it doesn’t implement everything that is available directly through the API.[^opensky]
 
 Anyone may create an OpenSky account as long as they follow the site's [terms of use](https://opensky-network.org/about/terms-of-use).
 
@@ -104,7 +98,7 @@ The `path` element is a list of abbreviated state vectors showing the route the 
 ]
 ```
 
-These values are the time, latitude, longitude, barometric altitude, heading and whether the aircraft is on the ground respectively.[^2]
+These values are the time, latitude, longitude, barometric altitude, heading and whether the aircraft is on the ground respectively. Note that the latitude/longitude ordering switches between the `/states` and `/tracks` endpoints! One other thing to be aware of is that tracks in OpenSky are reported in 1000 foot steps, so aircraft will appear to take off from an altitude of 0m and proceed to an elevation of 304m, then 609m and so on.[^altitude] See the [Appendix]({{< ref "#interpolatingelevations" >}}) for a function to do this.
 
 The one significant limitation with OpenSky is that these flight tracks are only available for flights from the last 30 days.
 
@@ -196,7 +190,7 @@ Start by enabling PL/Python:
 CREATE LANGUAGE plpython3u;
 ```
 
-Let’s start with a simple function that gets a list of flights an aircraft took between two dates. I provided my OpenSky credentials in the environment variables ``OPENSKY_USER`` and ``OPENSKY_PASS``, but they could also be set directly in the script.
+Let’s start with a simple function that gets a list of flights an aircraft took between two dates. I provided my OpenSky credentials in the environment variables ``OPENSKY_USER`` and ``OPENSKY_PASS``, but they could also be set directly in the script.[^envvar]
 
 ```plpgsql
 CREATE OR REPLACE FUNCTION
@@ -594,7 +588,7 @@ According to Transport Canada, the lateral separation at 22:39 UTC should be 0.6
  2022-06-18 22:38:07 |       1119 |               1075 |                 310 | ACA264 | SWG443 | POINT Z (-79.448 43.542 604.234) | POINT Z (-79.457 43.536 914)
 ```
 
-The altitude of the two flights does not match the altitudes stated by Transport Canada; however, the altitude reported by these two aircraft on the ground at Toronto was 0, so adding ~170m to account for the airport's elevation does bring us into that range.
+The altitude of the two flights does not match the altitudes stated by Transport Canada; however, the altitude measurement in the tracks is the elevation above ground, so adding ~170m to account for the airport's elevation does bring us into that range.
 
 ![Paths and closest points of approach for each aircraft](tcas.png "Flight tracks for ACA264 and SWG443 and their positions when at their closest")
 
@@ -759,8 +753,95 @@ Compare the results with the table above and you'll see how the values fit betwe
 
 Apply a little Pythagorean theorem and the distance was, in fact, 31 metres. Well ... sort of. Because of gaps in the ADS-B data, all PostGIS can do is *estimate* where the planes actually were. But if those estimates were correct, then the rest of the math does, in fact, check out!
 
+## Appendix
+
+### Interpolating elevations {#interpolatingelevations}
+
+I mentioned above that the tracks only provide elevations in 1000 foot (approximately 304m) increments. If you plot the raw data returned by the OpenSky API, it will have a "stepped" appearance; a simple linear interpolation, however, can smooth out the data.
+
+{{< chart >}}
+  type: "line",
+  data: {
+    labels: [0, 18, 19, 20, 22, 25, 28, 29, 31, 33, 35, 36, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 60, 61, 62, 63, 65, 66, 68, 69, 70, 71, 72, 74, 75, 77, 78, 79, 81, 82, 83, 84, 85, 87, 88, 89, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 107, 110, 113, 115, 117, 119, 121, 122, 123, 124, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 138, 139, 140, 141, 143, 146, 152, 154, 156, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167, 169, 172, 173, 177, 182, 194, 197, 204, 206, 209, 212, 219, 248, 267, 269, 271, 272],
+    datasets: [{
+      data: [0, 304, 304, 304, 304, 304, 304, 304, 304, 304, 304, 304, 304, 304, 304, 609, 609, 609, 609, 609, 609, 609, 609, 609, 609, 609, 609, 609, 609, 609, 609, 609, 609, 609, 609, 609, 609, 609, 609, 609, 609, 609, 609, 609, 609, 609, 609, 609, 609, 609, 609, 609, 609, 914, 914, 914, 914, 914, 914, 914, 914, 914, 914, 914, 914, 914, 1219, 1219, 1219, 1219, 1219, 1219, 1219, 1219, 1219, 1219, 1219, 1219, 1219, 1219, 1219, 1219, 1219, 1219, 1219, 1524, 1524, 1524, 1524, 1524, 1524, 1524, 1524, 1524, 1524, 1524, 1524, 1524, 1524, 1828, 1828, 1828, 1828, 1828, 1828, 1828, 1828, 1828, 1828, 1828, 1828, 1828, 1828, 1828, 2438, 2743, 2743, 2743, 2743, 2743],
+      label: "OpenSky data",
+      pointStyle: false
+    },{
+      data: [0, 304, 313.53125, 323.0625, 342.125, 370.71875, 399.3125, 408.84375, 427.90625, 446.96875, 466.03125, 475.5625, 580.40625, 589.9375, 599.46875, 609, 615.6304347826087, 622.2608695652174, 628.8913043478261, 635.5217391304348, 642.1521739130435, 648.7826086956521, 655.4130434782609, 662.0434782608695, 675.304347826087, 681.9347826086956, 688.5652173913044, 695.195652173913, 708.4565217391305, 715.0869565217391, 728.3478260869565, 734.9782608695652, 741.6086956521739, 748.2391304347826, 754.8695652173913, 768.1304347826087, 774.7608695652174, 788.0217391304348, 794.6521739130435, 801.2826086956521, 814.5434782608695, 821.1739130434783, 827.804347826087, 834.4347826086956, 841.0652173913044, 854.3260869565217, 860.9565217391305, 867.5869565217391, 880.8478260869565, 887.4782608695652, 894.1086956521739, 900.7391304347826, 907.3695652173913, 914, 930.0526315789474, 946.1052631578948, 962.1578947368421, 978.2105263157895, 994.2631578947369, 1010.3157894736842, 1026.3684210526317, 1042.421052631579, 1058.4736842105262, 1090.578947368421, 1138.7368421052631, 1186.8947368421054, 1219, 1244.4166666666667, 1269.8333333333333, 1295.25, 1307.9583333333333, 1320.6666666666667, 1333.375, 1358.7916666666667, 1371.5, 1384.2083333333333, 1396.9166666666667, 1409.625, 1422.3333333333333, 1435.0416666666667, 1447.75, 1460.4583333333333, 1473.1666666666667, 1485.875, 1511.2916666666667, 1524, 1536.16, 1548.32, 1572.64, 1609.12, 1682.08, 1706.4, 1730.72, 1755.04, 1767.2, 1779.3600000000001, 1791.52, 1803.68, 1815.8400000000001, 1828, 1839.090909090909, 1850.1818181818182, 1861.2727272727273, 1883.4545454545455, 1916.7272727272727, 1927.8181818181818, 1972.1818181818182, 2027.6363636363637, 2160.727272727273, 2194, 2271.6363636363635, 2293.818181818182, 2327.090909090909, 2360.3636363636365, 2438, 2743, 2965.8846153846152, 2989.346153846154, 3012.8076923076924, 3024.5384615384614],
+      label: "interpolated data",
+      pointStyle: false
+    }]
+  },
+  options: {
+    legend: {display: true},
+    tooltips: {enabled: false},
+    scales: {
+      x: {
+        display: true,
+        title: {
+          display: true,
+          text: "seconds into flight"
+        }
+      },
+      y: {
+        display: true,
+        title: {
+          display: true,
+          text: "elevation"
+        }
+      }
+    }
+  }
+{{< /chart >}}
+
+The following PL/Python function will group sequential elevations and interpolate their values.
+
+```postrsql
+CREATE OR REPLACE FUNCTION
+    interpolate_track_evelation(geom_in GEOMETRY(LINESTRINGZM))
+RETURNS
+    GEOMETRY(LINESTRINGZM)
+AS $$
+    from plpygis import Geometry, LineString
+    from itertools import groupby
+    geom = Geometry(geom_in)
+
+    elevations = []
+    for _, group in groupby(geom.vertices, lambda x: x.z):
+        elevations.append(list(group))
+
+    vertices = []
+    for i, _ in enumerate(elevations):
+        if i == len(elevations) - 1:
+            for v in elevations[i]:
+                vertices.append([v.x, v.z, v.y, v.m])
+        else:
+            elev_st = elevations[i][0].z
+            elev_ed = elevations[i+1][0].z
+            time_st = elevations[i][0].m
+            time_ed = elevations[i+1][0].m
+
+            # catch error of repeating m values
+            if time_ed == time_st:
+                incr = 0
+            else:
+                incr = (elev_ed - elev_st) / (time_ed - time_st)
+            for v in elevations[i]:
+                x = v.x
+                y = v.y
+                z = v.z + ((v.m - time_st) * incr)
+                m = v.m
+                pt = [x, y, z, m]
+                vertices.append(pt)
+    return LineString(vertices, srid=4326)
+$$ LANGUAGE plpython3u;
+```
+
 [^icao24]: These are also sometimes called Mode-S codes.
-[^2]: Note that the latitude/longitude ordering switches between the `/states` and `/tracks` endpoints!
 [^table]: One disadvantage, however, is that the function is tied to this table.
 [^tcas]: Traffic Collision Avoidance System.
 [^case]: ICAO 24 numbers are often found in upper case online, but most OpenSky API endpoints accept them only in lower case.
+[^opensky]: Matthias Schäfer, Martin Strohmeier, Vincent Lenders, Ivan Martinovic, Matthias Wilhelm. "Bringing up OpenSky: A large-scale ADS-B sensor network for research". In *Proceedings of the 13th IEEE/ACM International Symposium on Information Processing in Sensor Networks (IPSN)*, pages 83-94, April 2014.
+[^envvar]: On a system that uses systemd as a service manager, environment variables can be set in a configuration file added to `/etc/systemd/system/postgresql.service.d`.
+[^altitude]: See [this forum comment](https://opensky-network.org/forum/data/292-accuracy-of-baro-altitude-data-from-api) for confirmation that this is how OpenSky reports altitude and for a recommendation to use interpolation to smooth out the steps.
