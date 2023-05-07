@@ -18,6 +18,7 @@ enableCodeCopy = true
 disableImageOptimization = false
 
 # defaultBackgroundImage = "IMAGE.jpg" # used as default for background images 
+# defaultFeaturedImage = "IMAGE.jpg" # used as default for featured images in all articles
 
 highlightCurrentMenuArea = false
 smartTOC = false
@@ -40,8 +41,8 @@ smartTOCHideUnfocusedChildren = false
   showRecentItems = 3
   showMoreLink = true
   showMoreLinkDest = "/pages"
-  cardViewScreenWidth = false
   cardView = true
+  cardViewScreenWidth = false
   layoutBackgroundBlur = true # only used when layout equals background
 
 [article]
@@ -65,6 +66,8 @@ smartTOCHideUnfocusedChildren = false
   invertPagination = false
   showReadingTime = false
   showTableOfContents = true
+  showRelatedContent = false
+  # relatedContentLimit = 3
   showTaxonomies = false 
   showAuthorsBadges = false 
   showWordCount = false
