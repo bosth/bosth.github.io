@@ -54,7 +54,6 @@ smartTOCHideUnfocusedChildren = false
   showHero = true
   heroStyle = "background" # valid options: basic, big, background, thumbAndBackground
   layoutBackgroundBlur = true # only used when heroStyle equals background or thumbAndBackground
-  layoutBackgroundHeaderSpace = true # only used when heroStyle equals background
   showBreadcrumbs = false
   showDraftLabel = true
   showEdit = false
@@ -113,6 +112,7 @@ smartTOCHideUnfocusedChildren = false
   #groupByYear = false
   #cardViewScreenWidth = false
   #cardView = false
+
 
 [firebase]
   # apiKey = "XXXXXX"
