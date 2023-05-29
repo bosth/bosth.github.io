@@ -724,7 +724,7 @@ From the points in flight CGGGO, we see that there were ADS-B state vectors reco
 
 What PostGIS is doing is interpolating the coordinates when the exact measure value does not exist in the data set:
 
-```postrsql
+```postgresql
 WITH point AS (
   SELECT
     callsign,
@@ -797,7 +797,7 @@ I mentioned above that the tracks only provide elevations in 1000 foot (approxim
 
 The following PL/Python function will group sequential elevations and interpolate their values.
 
-```postrsql
+```postgresql
 CREATE OR REPLACE FUNCTION
     interpolate_track_evelation(geom_in GEOMETRY(LINESTRINGZM))
 RETURNS
