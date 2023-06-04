@@ -12,15 +12,20 @@ Imagine you were a bureaucrat in the Ottoman government and your posting as assi
 
 How would you have made that journey? How long would it have taken?
 
-These are the types of questions that I want to answer, and it turns out a lot of raw data on travel times in the Ottoman era actually exists, and that raw data can be fed into a routing engine to calculate the optimal journey for our imaginary Ottoman. This is how I found the data and built the engine.
+As a graduate student, I had come across raw data on travel times in some Ottoman primary sources, and this raw data can be fed into a routing engine to calculate the optimal journey for our imaginary Ottoman. This is how I found the data and built the engine.
 
 ## The Data
 
 ### *Sâlnâme*s
 
-The first sources are the provincial *sâlnâme*s, annals or almanacs published by the governments of each *vilâyet* (province) from the mid-1860s onwards.
+The first sources are the provincial *sâlnâme*s, annals or almanacs published by the governments of each *vilâyet* (province) from the mid-1860s onwards. The *sâlnâme*s contain a wealth of information of interest to a researcher, including administrative, demographic and economic data; in addition, many *sâlnâme*s also include lists or tables giving travel times between important settlements inside the province or between the province and other important Ottoman cities.
 
-![Van](van_salnamesi.webp "Distances from Bargiri and Erciş (1315 [1897/1898] Sâlnâme-i Vilâyet-i Van)")
+#### *Sâlnâme-i Vilâyet-i Van*
+
+As an example, the yearbook for Van from 1315 [1897/1898] has a list of travel times for the provincial capital and district centres.
+
+![Van](van_salnamesi.webp "Distances from Bargiri and Erciş")
+
 
 <style type="text/css">
 .tg  {border-collapse:collapse;border-spacing:0;}
@@ -33,45 +38,49 @@ The first sources are the provincial *sâlnâme*s, annals or almanacs published 
 <table class="tg">
 <thead>
   <tr>
-    <th class="tg-2zis" colspan="2">Bargiri kazâsı</th>
+    <th class="tg-2zis" colspan="2">Bargiri kazâsı [Bargiri district]</th>
   </tr>
 </thead>
 <tbody>
   <tr>
-    <td class="tg-1zis">Mesâfesi</td>
-    <td class="tg-1zis">Sâat</td>
+    <td class="tg-1zis">mesâfesi [distance]</td>
+    <td class="tg-1zis">sâat [hours]</td>
   </tr>
   <tr>
-    <td class="tg-pjk6">Merkez-i vilâyete olan mesâfesi</td>
+    <td class="tg-pjk6">merkez-i vilâyete olan mesâfesi [distance to the provincial centre]</td>
     <td class="tg-1zis">14</td>
   </tr>
   <tr>
-    <td class="tg-pjk6">Erciş'e olan mesâfesi</td>
+    <td class="tg-pjk6">Erciş'e olan mesâfesi [distance to Erciş]</td>
     <td class="tg-1zis">6</td>
   </tr>
   <tr>
-    <td class="tg-2zis" colspan="2">Erciş kazâsı</td>
+    <td class="tg-2zis" colspan="2">Erciş kazâsı [Erciş district]</td>
   </tr>
   <tr>
-    <td class="tg-pjk6">Merkez-i vilâyete olan mesâfesi</td>
+    <td class="tg-pjk6">merkez-i vilâyete olan mesâfesi [distance to the provincial centre]</td>
     <td class="tg-1zis">18</td>
   </tr>
   <tr>
-    <td class="tg-pjk6">Bargiri'ye olan mesâfesi</td>
+    <td class="tg-pjk6">Bargiri'ye olan mesâfesi [distance to Bargiri]</td>
     <td class="tg-1zis">6</td>
   </tr>
   <tr>
-    <td class="tg-pjk6">Âdilcevâz'a olan mesâfesi</td>
+    <td class="tg-pjk6">Âdilcevâz'a olan mesâfesi [distance to Âdilcevâz]</td>
     <td class="tg-1zis">12</td>
   </tr>
 </tbody>
 </table>
 
-![Adana](adana_salnamesi.webp "Adana and Cebel-i Bereket sections of travel times table (1318 [1900/1901] Sâlnâme-i Vilâyet-i Adana)")
+#### *Sâlnâme-i Vilâyet-i Adana*
 
-It would be possible to painstakingly reconstruct a network of locales recorded in each province's *sâlnâme*, but there is something better.
+The Adana yearbook from 1318 [1900/1901] presents similar information but in table format.
+
+![Adana](adana_salnamesi.webp "Adana and Cebel-i Bereket sections of travel times table")
 
 ### Maps
+
+In aggregate, the provincial *sâlnâme*s have a tremendous amount of data in them, and it would be possible to reconstruct a graph of travel times for the entire Ottoman Empire. This was briefly my initial approach but I found that this work had already done by contemporary cartographers and that several maps could be leveraged to ease the process.
 
 #### Ottoman map from 1855/1856
 
