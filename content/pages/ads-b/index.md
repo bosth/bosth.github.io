@@ -161,10 +161,10 @@ Create the table to store the flight data:
 CREATE TABLE flight (
   icao24   TEXT,
   callsign TEXT,
-  dep_airp TEXT, -- departure airport
-  arr_airp TEXT, -- arrival airport
-  dep_time TIMESTAMP, -- departure time
-  arr_time TIMESTAMP, -- arrival time
+  airport_depart TEXT,
+  airport_arrive TEXT,
+  time_depart TIMESTAMP,
+  time_arrive TIMESTAMP,
   geom GEOMETRY(LINESTRINGZM, 4326)
 );
 ```
@@ -351,9 +351,9 @@ And how do we add the tracks?
 UPDATE
   flight
 SET
-  geom = get_track(icao24, dep_time)
+  geom = get_track(icao24, time_depart)
 WHERE
-  date(dep_time) = '2022-05-01';
+  date(time_depart) = '2022-05-01';
 ```
 
 Remove the WHERE clause and you’ll add tracks to all the flights in your table (which could take a very long time depending on what you have put in there). To add geometries to all the flights without them, you can change the where clause to `WHERE geom IS NULL`.
@@ -375,7 +375,7 @@ SELECT
 FROM
   flight
 WHERE
-  date(dep_time) = '2022-05-01';
+  date(time_depart) = '2022-05-01';
 ```
 
 ```sql
@@ -394,7 +394,7 @@ And the I ran the following query to find instances when the start and end of a 
 
 ```postgresql
 SELECT
-  f.callsign, f.dep_time, f.dep_airp, f.arr_airp
+  f.callsign, f.time_depart, f.airport_depart, f.airport_arrive
 FROM
   flight AS f, country AS usa, country AS canada
 WHERE
@@ -406,9 +406,9 @@ WHERE
 ```
 
 ```postgresql
- callsign |      dep_time       | dep_airp | arr_airp
-----------+---------------------+----------+----------
- JZA474   | 2022-05-13 01:10:16 | CYCD     | CYYC
+ callsign |      time_depart    | airport_depart | airport_arrive
+----------+---------------------+----------------+----------
+ JZA474   | 2022-05-13 01:10:16 | CYCD           | CYYC
 ```
 
 Showing that particular flight in QGIS, we can see how it did, in fact, pass over the United States during its flight.
@@ -425,13 +425,13 @@ Let's start by seeing if any of the flights had an exact intersections of their 
 
 ```postgresql
 SELECT
-  a.callsign, a.dep_time,
-  b.callsign, b.dep_time,
+  a.callsign, a.time_depart,
+  b.callsign, b.time_depart,
   ST_AsText(ST_Intersection(a.geom, b.geom))
 FROM
   flight AS a, flight AS b
 WHERE
-  a.dep_time > b.dep_time AND
+  a.time_depart > b.dep_time AND
   ST_Intersects(ST_Force3D(a.geom), ST_Force3D(b.geom));
 ```
 
@@ -528,7 +528,7 @@ I could have ingested all the tracks for every row in the table, but since I alr
 UPDATE
   tcas
 SET
-  geom = get_track(icao24, dep_time)
+  geom = get_track(icao24, time_depart)
 WHERE
   callsign IN ('ACA264', 'SWG443');
 ```
@@ -615,7 +615,7 @@ SELECT
 FROM
   flight as a, flight as b
 WHERE
-  a.dep_time > b.dep_time AND
+  a.time_depart > b.dep_time AND
   ST_ClosestPointOfApproach(a.geom, b.geom) IS NOT NULL;
 ```
 
@@ -648,7 +648,7 @@ WITH flights AS (
   FROM
     flight AS a, flight AS b
   WHERE
-    a.dep_time > b.dep_time
+    a.time_depart > b.dep_time
 ), cpa AS (
   SELECT
     fa, fb, ga, gb,
@@ -797,7 +797,7 @@ I mentioned above that the tracks only provide elevations in 1000 foot (approxim
 
 The following PL/Python function will group sequential elevations and interpolate their values.
 
-```postgresql
+```plpgsql
 CREATE OR REPLACE FUNCTION
     interpolate_track_evelation(geom_in GEOMETRY(LINESTRINGZM))
 RETURNS
