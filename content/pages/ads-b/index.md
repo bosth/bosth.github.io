@@ -36,7 +36,7 @@ Anyone may create an OpenSky account as long as they follow the site's [terms of
 
 #### State vectors
 
-Equipped with an ICAO 24 number, I retrieved some actual flight data provided by OpenSky. A basic query also requires a specific time, with that time being represented as the number of seconds elapsed since the 1st of January 1970 (otherwise known as UNIX time). For example, the position of the ATR-42 above at 16:01:23 on the 11th of April, 2022 is requested by https://opensky-network.org/api/states/all?icao24=39ad00&time=1649692883.[^case]
+Equipped with an ICAO 24 number, I retrieved some actual flight data provided by OpenSky.[^case] A basic query also requires a specific time, with that time being represented as the number of seconds elapsed since the 1st of January 1970 (otherwise known as UNIX time). For example, the position of the ATR-42 above at 16:01:23 on the 11th of April, 2022 is requested by https://opensky-network.org/api/states/all?icao24=39ad00&time=1649692883.
 
 The [JSON](https://www.json.org/)-encoded response looks like the following:
 
