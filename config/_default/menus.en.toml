@@ -30,6 +30,18 @@
 #  pageRef = "tags"
 #  weight = 30
 
+[[main]]
+  identifier = "mastodon"
+  pre = "mastodon"
+  url = "https://mapstodon.space/@jerseybastion"
+  weight = 300
+
+[[main]]
+  identifier = "github"
+  pre = "github"
+  url = "https://github.com/bosth"
+  weight = 400
+
 
 # -- Footer Menu --
 # The footer menu is displayed at the bottom of the page, just before
