@@ -194,7 +194,7 @@ Let’s start with a simple function that gets a list of flights an aircraft too
 
 ```plpgsql
 CREATE OR REPLACE FUNCTION
-    get_aircraft_flights(icao24 TEXT, in_datebegin DATE, in_dateend DATE)
+    opensky_get_aircraft_flights(icao24 TEXT, in_datebegin DATE, in_dateend DATE)
 RETURNS
     TABLE (LIKE flight)
 AS $$
@@ -240,13 +240,13 @@ AS $$
 $$ LANGUAGE plpython3u;
 ```
 
-The function definition `get_aircraft_flights` takes three arguments, the ICAO 24 code discussed above plus a start and an end date. Returning `TABLE (LIKE flight)` is a rather useful way that PostgreSQL lets you force the output of a function to match exactly the definition of a table.[^table]
+The function definition `opensky_get_aircraft_flights` takes three arguments, the ICAO 24 code discussed above plus a start and an end date. Returning `TABLE (LIKE flight)` is a rather useful way that PostgreSQL lets you force the output of a function to match exactly the definition of a table.[^table]
 
 The function makes a call to the OpenSky API to get all the flights for the aircraft between the two dates, and returns the results. It does not fill in the track for each flight, but we can write another function to do that:
 
 ```plpgsql
 CREATE OR REPLACE FUNCTION
-    get_track(icao24 TEXT, in_date TIMESTAMP WITH TIME ZONE)
+    opensky_get_track(icao24 TEXT, in_date TIMESTAMP WITH TIME ZONE)
 RETURNS
     GEOMETRY(LINESTRINGZM, 4326)
 AS $$
@@ -289,7 +289,7 @@ Now you can use SQL on the results of this function as if it were a normal datab
 SELECT
   DISTINCT callsign
 FROM
-  get_aircraft_flights('c05f01', '2022-05-01', '2022-05-07');
+  opensky_get_aircraft_flights('c05f01', '2022-05-01', '2022-05-07');
 ```
 
 ```sql
@@ -333,7 +333,7 @@ INSERT INTO
 SELECT
   *
 FROM
-  get_aircraft_flights('c05f01', '2022-05-01', '2022-05-07');
+  opensky_get_aircraft_flights('c05f01', '2022-05-01', '2022-05-07');
 ```
 
 Now the same queries can be run locally from our `flight` table:
@@ -351,7 +351,7 @@ And how do we add the tracks?
 UPDATE
   flight
 SET
-  geom = get_track(icao24, time_depart)
+  geom = opensky_get_track(icao24, time_depart)
 WHERE
   date(time_depart) = '2022-05-01';
 ```
@@ -462,7 +462,7 @@ I wanted to see if I could replicate this narrative in ADS-B data. The first pro
 
 ```plpgsql
 CREATE OR REPLACE FUNCTION
-    get_airport_flights(airport TEXT, in_datebegin DATE, in_dateend DATE)
+    opensky_get_airport_flights(airport TEXT, in_datebegin DATE, in_dateend DATE)
 RETURNS
     TABLE (LIKE flight)
 AS $$
@@ -520,7 +520,7 @@ INSERT INTO tcas
 SELECT
   *
 FROM
-  get_airport_flights('CYYZ', '2022-06-18', '2022-06-18');
+  opensky_get_airport_flights('CYYZ', '2022-06-18', '2022-06-18');
 ```
 I could have ingested all the tracks for every row in the table, but since I already knew the affected flights, I just focused on those.
 
@@ -528,7 +528,7 @@ I could have ingested all the tracks for every row in the table, but since I alr
 UPDATE
   tcas
 SET
-  geom = get_track(icao24, time_depart)
+  geom = opensky_get_track(icao24, time_depart)
 WHERE
   callsign IN ('ACA264', 'SWG443');
 ```
@@ -603,7 +603,7 @@ INSERT INTO flight
 SELECT
   *
 FROM
-  get_airport_flights('CYYJ', '2022-06-15', '2022-06-15');
+  opensky_get_airport_flights('CYYJ', '2022-06-15', '2022-06-15');
 ```
 From this we will see for all flights that have any temporal overlap, there is a single time at which the two flights were closest to one another.
 
