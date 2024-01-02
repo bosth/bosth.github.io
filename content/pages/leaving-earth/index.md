@@ -96,11 +96,11 @@ Finally, if we used a single Saturn rocket, we also have a valid solution:
 
 In fact, any combination of two or more Saturn and Soyuz rockets will satisfy this CSP (e.g. ``saturn = 2, soyuz = 0``, ``saturn = 1, soyuz = 1`` and ``saturn = 5, soyuz = 3`` are all valid solutions).
 
-Now if the payload size increased from 2 to, say, 10, and we allowed all the different rocket types modelled in Leaving Earth, then the set of solutions is perhaps not so obvious.
+Now if the payload size increased from 2 to, say, 10, and we allowed all the different rocket types modelled in Leaving Earth, then the set of solutions is perhaps not so obvious. This is where a CSP solver comes in handy.
 
 ## Z3 theorem prover
 
-This is where a CSP solver comes in handy. Z3 is a toolkit for solving CSPs with bindings for several languages, including Python, which is the language I'll be using here.
+Z3 is a toolkit for solving CSPs with bindings for several languages, including Python, which is the language I'll be using here.
 
 ### Solving a single maneuver
 
@@ -175,11 +175,25 @@ When it's just a single maneuver, the constraints end up being quite simple; how
 
 {{< mermaid >}}
 graph TD
-    A((Earth)) -->|3| B(Suborbital Flight)
-    B -->|5| C(Earth Orbit)
-    A -->|8| C
-    C -->|3| D(Lunar Orbit)
-    D -->|2| E((Moon))
+    E((Earth)) -->|3| ESo(Suborbital Flight)
+    ESo -->|5| Eo
+    E   -->|8| Eo(Earth Orbit)
+    subgraph  
+    Eo  ==>|3| Lo(Lunar Orbit)
+    Lo  ==>|2| L(Moon)
+    end
+    Eo  -->|3| Ipt(Inner Planets Transfer)
+    Ipt -->|5| Hfb(Mercury Fly-by)
+    Hfb -->|2| Ho(Mercury Orbit)
+    Ho  -->|2| H(Mercury)
+    Ipt -->|4| Mo(Mars Orbit)
+    Ipt -->|1| Mfb(Mars Fly-by)
+    Mfb -->|3| Mo
+    Mo  -->|0| M(Mars)
+    Ipt -->|3| Vo(Venus Orbit)
+    Ipt -->|2| Vfb(Venus Fly-by)
+    Vfb -->|1| Vo
+    Vo  -->|0| V(Venus)
 {{< /mermaid >}}
 
 The key here is to express this mission *backwards*; in other words, we'll make sure we can travel from Lunar Orbit to the Moon first and then ensure we can travel from Earth Orbit to Lunar Orbit.
@@ -245,7 +259,7 @@ Earth to Mercury with a two stage launch? ``maneuvers = [3, 5, 3, 5, 2, 2]``
 
 Ion Thrusters work a little differently: they can't be used for maneuvers travelling to or from celestial bodies; they are not expended when they are used; they produce 5 thrust for every year the journey takes. As an example, if a spacecraft composed of a Probe (mass 1) and an Ion Thruster (mass 1) travels from Earth Orbit to Lunar Orbit, then the journey will take 2 years to complete. The same formula - *thrust required = mass × difficulty* - applies, giving (1+1) × 3 = 6. Ion Thrusters generate 5 thrust per year so one year of travel would only provide 5 thrust and we need 6, hence two years.
 
-Since Ion Thrusters are not expended, they are very efficient as long as you aren't in a hurry, but remember Leaving Earth is a *race* to get points!
+Since Ion Thrusters are not expended, they are very efficient as long as you aren't in a hurry, but remember Leaving Earth is a *race* to complete missions, so players must be mindful about how long travel takes!
 
 Let's add support for Ion Thrusters to the code above. First we need to add the Ion Thrusters' mass and cost *once* but add their thrust at each stage. Second, we need to introduce a new variable for the number of years each maneuver takes.
 
