@@ -1,65 +1,28 @@
 languageCode = "en"
 languageName = "English"
-displayName = "EN"
-isoCode = "en"
 weight = 1
-rtl = false
-
 title = "Benjamin Trigona-Harany | jaxartes.net"
-# logo = "img/logo.png"
-description = "Personal website for Benjamin Trigona-Harany"
-# copyright = "Copy, _right?_ :thinking_face:"
 
-dateFormat = "2 January 2006"
+[params]
+  displayName = "EN"
+  isoCode = "en"
+  rtl = false
+  dateFormat = "2006 January 2"
+  # logo = "img/logo.png"
+  # secondaryLogo = "img/secondary-logo.png"
+  description = "Personal website for Benjamin Trigona-Harany"
+  # copyright = "Copy, _right?_ :thinking_face:"
 
 [author]
   name = "Benjamin Trigona-Harany"
   image = "img/author.jpg"
-  #headline = "🇨🇦 in 🇩🇪"
-  #headline = "ottoman history, geospatial, tech"
+  #headline = ""
   #bio = "A little bit about you"
   links = [
     { link = "https://www.jaxartes.net/" },
     { email = "mailto:info@jaxartes.net" },
-  #   { amazon = "https://www.amazon.com/hz/wishlist/ls/wishlist-id" },
-  #   { apple = "https://www.apple.com" },
-  #   { blogger = "https://username.blogspot.com/" },
-  #   { codepen = "https://codepen.io/username" },
-  #   { dev = "https://dev.to/username" },
-  #   { discord = "https://discord.gg/invitecode" },
-  #   { dribbble = "https://dribbble.com/username" },
-  #   { facebook = "https://facebook.com/username" },
-  #   { flickr = "https://www.flickr.com/photos/username/" },
-  #   { foursquare = "https://foursquare.com/username" },
     { github = "https://github.com/bosth" },
-  #   { gitlab = "https://gitlab.com/username" },
-  #   { google = "https://www.google.com/" },
-  #   { hashnode = "https://username.hashnode.dev" },
-  #   { instagram = "https://instagram.com/username" },
-  #   { keybase = "https://keybase.io/username" },
-  #   { kickstarter = "https://www.kickstarter.com/profile/username" },
-  #   { lastfm = "https://lastfm.com/user/username" },
     { linkedin = "https://linkedin.com/in/benth" },
     { mastodon = "https://mapstodon.space/@jerseybastion" },
-  #   { medium = "https://medium.com/username" },
-  #   { microsoft = "https://www.microsoft.com/" },
-  #   { orcid = "https://orcid.org/userid" },
-  #   { patreon = "https://www.patreon.com/username" },
-  #   { pinterest = "https://pinterest.com/username" },
-  #   { reddit = "https://reddit.com/user/username" },
-  #   { researchgate = "https://www.researchgate.net/profile/username" },
-  #   { slack = "https://workspace.url/team/userid" },
-  #   { snapchat = "https://snapchat.com/add/username" },
-  #   { soundcloud = "https://soundcloud.com/username" },
-  #   { stack-overflow = "https://stackoverflow.com/users/userid/username" },
-  #   { steam = "https://steamcommunity.com/profiles/userid" },
-  #   { telegram = "https://t.me/username" },
-  #   { tiktok = "https://tiktok.com/@username" },
-  #   { tumblr = "https://username.tumblr.com" },
-  #   { twitch = "https://twitch.tv/username" },
-  #   { twitter = "https://twitter.com/username" },
-  #   { whatsapp = "https://wa.me/phone-number" },
-  #   { youtube = "https://youtube.com/username" },
-  #   { ko-fi = "https://ko-fi.com/username" },
     { worldcat = "https://www.worldcat.org/search?q=Benjamin+Trigona+Harany" },
   ]
