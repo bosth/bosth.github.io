@@ -48,10 +48,12 @@ smartTOCHideUnfocusedChildren = false
 
 [article]
   showDate = false
+  showDateOnlyInArticle = false
   showViews = false
   showLikes = false
   showDateUpdated = false
   showAuthor = false
+  showAuthorBottom = false
   showHero = true
   heroStyle = "background" # valid options: basic, big, background, thumbAndBackground
   layoutBackgroundBlur = true # only used when heroStyle equals background or thumbAndBackground
@@ -73,6 +75,7 @@ smartTOCHideUnfocusedChildren = false
   showAuthorsBadges = false 
   showWordCount = false
   # sharingLinks = [ "linkedin", "twitter", "reddit", "pinterest", "facebook", "email"]
+  showZenMode = false
 
 [list]
   showHero = true
@@ -126,6 +129,10 @@ smartTOCHideUnfocusedChildren = false
 
 [fathomAnalytics]
   # site = "ABC12345"
+  # domain = "llama.yoursite.com"
+
+[umamiAnalytics]
+  websiteid = "52b9571f-487a-45f9-b522-2dda7e579f42"
   # domain = "llama.yoursite.com"
 
 [buymeacoffee]
