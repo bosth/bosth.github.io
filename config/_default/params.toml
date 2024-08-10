@@ -88,6 +88,7 @@ smartTOCHideUnfocusedChildren = false
   showLikes = false
   showTableOfContents = false
   showCards = true
+  orderByWeight = false
   groupByYear = false
   cardView = true
   cardViewScreenWidth = false
@@ -134,6 +135,7 @@ smartTOCHideUnfocusedChildren = false
 [umamiAnalytics]
   websiteid = "52b9571f-487a-45f9-b522-2dda7e579f42"
   # domain = "llama.yoursite.com"
+  # dataDomains = "yoursite.com,yoursite2.com"
 
 [buymeacoffee]
   # identifier = ""
