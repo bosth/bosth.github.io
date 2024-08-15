@@ -8,7 +8,7 @@ I authored two Python modules that make it easier to use geospatial Python from 
 
 ## ``plpygis``
 
-``plpygis`` is a Python conveter to and from the PostGIS geometry type, WKB, EWKB, GeoJSON and Shapely geometries and additionally supports `__geo_interface__`. ``plpygis`` is intended for use in PL/Python functions, making the entire Python geospatial ecosystem available in SQL queries.
+`plpygis` is a pure Python module with no dependencies that can convert geometries between [Well-known binary](https://en.wikipedia.org/wiki/Well-known_binary) (WKB/EWKB), [Well-known Text](https://en.wikipedia.org/wiki/Well-known_text_representation_of_geometry) (WKT/EWKT) and GeoJSON representations. `plpygis` is mainly intended for use in PostgreSQL [PL/Python](https://www.postgresql.org/docs/current/plpython.html) functions to augment [PostGIS](https://postgis.net/)'s native capabilities.
 
 {{< github repo="bosth/plpygis" >}}
 
@@ -34,7 +34,7 @@ The function above can be called with a normal SQL statement:
 SELECT swap(geom) FROM city;
 ```
 
-I spoke about **plpygis** at FOSS4G 2017 in Boston. The slides are [here](https://2017.foss4g.org/post_conference/Extending-PostGIS-with-Python.pdf) and a video of the talk is also available.
+I spoke about **plpygis** at FOSS4G 2017 in Boston. The slides are [here](https://2017.foss4g.org/post_conference/Extending-PostGIS-with-Python.pdf) and a video of the talk is also available. I also presented an example of using `plpygis` for some real-world analysis at FOSS4G 2023 in Prizren, and you can find a write-up [here]({{< ref "ads-b" >}}).
 
 {{< vimeo id="248099711" title="Extending PostGIS with Python" >}}
 

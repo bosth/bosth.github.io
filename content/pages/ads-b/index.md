@@ -10,7 +10,10 @@ Can standard geospatial tools be used with transmissions from [Automatic Depende
 
 My geospatial analysis tool of choice is PostGIS, which has multidimensional geometry types and functions, but I had never really had cause to use them despite having coded support for additional dimensions when I developed [plpygis](https://plpygis.readthedocs.io/en/latest/).
 
-This article describes the process of getting free ADS-B data, loading it into PostgreSQL and then manipulating it with PostGIS and Python.
+This article describes the process of getting free ADS-B data, loading it into PostgreSQL and then manipulating it with PostGIS and Python. Much (but not all!) of this was part of my FOSS4G 2023 talk "Aircraft trajectory analysis using PostGIS", which was recorded and made available by the organizers.
+
+{{< youtube id="gl7LMEPvAmo" title="Aircraft trajectory analysis using PostGIS" >}}
+
 
 ### Tools
 
