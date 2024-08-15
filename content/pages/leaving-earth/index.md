@@ -10,7 +10,13 @@ Mission planning with the Z3 Theorem Prover
 
 ## Leaving Earth
 
-Leaving Earth is a board game by Joseph Fatula that recreates the space race of the 1950s, 60s and 70s. At the start of the game, a handful of missions will be revealed and the players compete to be the first to complete each one, scoring points based on their complexity. Many of these missions are examples of actual human accomplishments - such as *Venus Lander* - while others - *Mars Station* - are more fanciful.
+Leaving Earth is a board game by Joseph Fatula that recreates the space race of the 1950s, 60s and 70s.
+
+{{< alert >}}
+Do not attempt to buy Leaving Earth from its publisher. Read more [here](https://boardgamegeek.com/thread/3216322/do-not-buy-at-lumenaris) or [here](https://boardgamegeek.com/thread/3312960/lumenaris-website-is-gone).
+{{< /alert >}}
+
+At the start of the game, a handful of missions will be revealed and the players compete to be the first to complete each one, scoring points based on their complexity. Many of these missions are examples of actual human accomplishments - such as *Venus Lander* - while others - *Mars Station* - are more fanciful.
 
 {{< figure src="mission_sample.jpg" caption="Easy missions in Leaving Earth" >}}
 
@@ -126,7 +132,7 @@ Z3 will return the following result:
 [saturn rockets = 0, soyuz rockets = 2]
 ```
 
-In other words, 2 Soyuz rockets can transport a payload of 10 to Suborbital Flight. This certainly is *a* solution, but is it the optimal solution? For this, we have to decide what defines optimal. Is it the number of rockets? The total mass of the rockets? Or is it the *cost* of the rockets used? If we are thinking about a game of Leaving Earth, it's probably the cost.
+In other words, 2 Soyuz rockets can transport a payload of 10 to Suborbital Flight. This certainly is *a* solution, but is it the optimal solution? For this, we have to decide what defines optimal. Is it the number of rockets? The total mass of the rockets? Or is it the *cost* of the rockets used? If we are thinking about a game of Leaving Earth, in which budgets are always tight, it's probably the cost.
 
 Let's rewrite the function but with a cost optimization and let's add all the remaining rockets in as variables.
 
