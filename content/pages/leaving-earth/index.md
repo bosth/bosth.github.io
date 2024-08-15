@@ -22,7 +22,7 @@ The core mechanic in Leaving Earth is planning the missions using a variety of r
 
 {{< figure src="lunarorbit.jpg" caption="From a Lunar orbit, a spacecraft may land on the Moon or fly back to an Earth Orbit" >}}
 
-The key concept is that each maneuver has a difficulty - roughly approximating [Delta-*v*](https://en.wikipedia.org/wiki/Delta-v) - and each rocket can produce a certain amount of thrust, at which point it is expended.[^expended] The amount of thrust required to perform a maneuver is based on this simple formula: *thrust required = mass × difficulty*. The final factor, mass, is determined by the number of components aboard the spacecraft.
+The key concept is that each maneuver has a difficulty - roughly approximating [Delta-*v*](https://en.wikipedia.org/wiki/Delta-v) - and each rocket can be expended to produce a certain amount of thrust.[^expended] The amount of thrust required to perform a maneuver is based on this simple formula: *thrust required = mass × difficulty*. The final factor, mass, is determined by the number of components aboard the spacecraft.
 
 A simple mission plan for a spacecraft travelling from Earth to the Lunar surface might look like the following (the numbers in parentheses indicates the mass of that component):
 
@@ -178,7 +178,7 @@ graph TD
     E((Earth)) -->|3| ESo(Suborbital Flight)
     ESo -->|5| Eo
     E   -->|8| Eo(Earth Orbit)
-    subgraph  
+    subgraph " "
     Eo  ==>|3| Lo(Lunar Orbit)
     Lo  ==>|2| L(Moon)
     end
