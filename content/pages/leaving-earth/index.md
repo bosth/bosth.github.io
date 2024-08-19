@@ -1,7 +1,7 @@
 ---
 title: "Leaving Earth is a Constraint Satisfaction Problem"
 tags: [boardgames, csp, z3, python]
-date: 2023-01-01
+date: 2022-01-01
 ---
 
 {{< lead >}}

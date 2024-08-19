@@ -1,7 +1,7 @@
 ---
 title: "Bāla’y-balan"
 tags: [ottoman, language, history]
-date: 2018-03-01
+date: 2012-03-01
 ---
 
 {{< lead >}}

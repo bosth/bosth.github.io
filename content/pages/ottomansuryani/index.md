@@ -1,7 +1,7 @@
 ---
 title: "The Ottoman Süryânî"
 tags: [ottoman, syriac, history]
-date: 2013-01-01
+date: 2010-01-01
 ---
 
 I did my graduate studies at [Boğaziçi Üniversitesi](http://www.boun.edu.tr/) in Istanbul under the direction of the [Vangelis Kechriotis](https://www.degruyter.com/document/doi/10.1515/soeu-2015-630408/html). My research topic was the Ottoman *Süryânî* (Syriac) community during the Second Constitutional Period.
