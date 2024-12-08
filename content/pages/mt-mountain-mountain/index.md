@@ -16,7 +16,7 @@ This reminded me of a similar triple tautology I came across as a graduate stude
 
 ![Mürşid-i Âsûriyûn](featured.png "*Mürşid-i Âsûriyûn*, May 1912")
 
-Reading right-to-left, you can see it right there at the start of the second line: {{< sy  "ܔܒܠܛܘܪ ܛܐܓ݂" >}}. That's *cebel* (Arabic for "mountain"), *tûr* (Syriac for "mountain") and *dağ* (Turkish for, you guessed it, "mountain").[^s]
+Reading right-to-left, you can see it right there at the start of the second line: {{< syw  "ܔܒܠܛܘܪ ܛܐܓ݂" >}}. That's *cebel* (Arabic for "mountain"), *tûr* (Syriac for "mountain") and *dağ* (Turkish for, you guessed it, "mountain").[^s]
 
 {{< alert "comment" >}}
 The text above was written in Ottoman Turkish, and for consistency, I am using standard Turkish transliteration for all the foreign language words. It's worth pointing out that *cebel* is pronounced "jebel".
@@ -32,9 +32,9 @@ As a small aside, the journal *Mürşid-i Âsûriyûn* that this place name came
 
 |Syriac | Arabic | Latin |
 | :---: | :----: | :---: |
-|{{< sy "ܔܒܠ" 2 >}}|{{< ar "جبل" 2 >}}|*cebel*|
-|{{< sy "ܛܘܪ" 2 >}}|{{< ar "طور" 2 >}}|*tûr*|
-|{{< sy "ܛܐܓ݂" 2 >}}|{{< ar "طاغ" 2 >}}|*dağ*|
+|{{< syw "ܔܒܠ" 2 >}}|{{< ar "جبل" 2 >}}|*cebel*|
+|{{< syw "ܛܘܪ" 2 >}}|{{< ar "طور" 2 >}}|*tûr*|
+|{{< syw "ܛܐܓ݂" 2 >}}|{{< ar "طاغ" 2 >}}|*dağ*|
 
 Âşûr Yûsuf was a native speaker of Armenian and he did *not* know the Syriac language, despite identifying as a Syriac (*Süryânî*) and an Assyrian (*Âsûrî*). Like any other speaker of Ottoman Turkish, he would have been well-acquainted with the common word *cebel* despite not speaking Arabic himself.
 
@@ -45,9 +45,9 @@ It's interesting to compare his usage to some other notable topological features
 
 In the Arabic and the Ottoman cases where we find both *cebel* and *tûr*, speakers would have understood these names to mean something like "Tûr Mountain".
 
-When I originally read the passage above, I also transliterated the place name as *Cebel&#8209;i Tûr Dağı*, but looking at the text again, I can see that the author intended it to be read *Cebeltûr Dağı*. My original reading would have required a space between the first two words, so {{< sy  "ܔܒܠ ܛܘܪ ܛܐܓ݂" >}}, but that space is quite clearly not there: {{< sy  "ܔܒܠܛܘܪ ܛܐܓ݂" >}}.
+When I originally read the passage above, I also transliterated the place name as *Cebel&#8209;i Tûr Dağı*, but looking at the text again, I can see that the author intended it to be read *Cebeltûr Dağı*. My original reading would have required a space between the first two words, so {{< syw  "ܔܒܠ ܛܘܪ ܛܐܓ݂" >}}, but that space is quite clearly not there: {{< syw  "ܔܒܠܛܘܪ ܛܐܓ݂" >}}.
 
 And that, I suppose, is the difference. *Cebel-i Tûr* (with a space) was "Mount Tûr" and no *Dağ* was necessary or even possible. But *Cebeltûr* (no space) had become a set phrase much like *Penhul*. And it was acceptable for a Turkish-speaker to call this place *Cebeltûr Dağı*: "Mount Cebeltûr".
 
-[^s]: Observant readers will note that it is actually {{< sy  "ܔܒܠܛܘܪ ܛܐܓ݂ܢܢ" >}} in the original text but the final two characters are the Turkish grammatical suffix *-ının* which we can ignore.
+[^s]: Observant readers will note that it is actually {{< syw  "ܔܒܠܛܘܪ ܛܐܓ݂ܢܢ" >}} in the original text but the final two characters are the Turkish grammatical suffix *-ının* which we can ignore.
 [^t]: In Turkish today, *Tûr Dağı* has replaced the [Persian grammatical construct](https://en.wikipedia.org/wiki/Ez%C4%81fe) which you see in *Cebel-i Tûr*. And both now and then, Mount Sinai had many different names, including *Cebel-i Sînâ*.

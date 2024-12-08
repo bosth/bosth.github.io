@@ -34,7 +34,7 @@ A map from the text was also featured on the lovely [The Afternoon Map](http://w
 
 <br>
 
-{{< button href="/adiyamantarihi.pdf" target="_self" >}}
+{{< button href="/adiyaman_suryaniler.pdf" target="_self" >}}
 Download
 {{< /button >}}
 

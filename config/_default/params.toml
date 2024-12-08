@@ -149,3 +149,17 @@ smartTOCHideUnfocusedChildren = false
   # bing = ""
   # pinterest = ""
   # yandex = ""
+
+[author]
+  name = "Benjamin Trigona-Harany"
+  image = "img/author.jpg"
+  #headline = ""
+  #bio = "A little bit about you"
+  links = [
+    { link = "https://www.jaxartes.net/" },
+    { email = "mailto:info@jaxartes.net" },
+    { github = "https://github.com/bosth" },
+    { linkedin = "https://linkedin.com/in/benth" },
+    { mastodon = "https://mapstodon.space/@jerseybastion" },
+    { worldcat = "https://www.worldcat.org/search?q=Benjamin+Trigona+Harany" },
+  ]

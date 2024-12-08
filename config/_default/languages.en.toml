@@ -10,19 +10,5 @@ title = "Benjamin Trigona-Harany | jaxartes.net"
   dateFormat = "2006 January 2"
   # logo = "img/logo.png"
   # secondaryLogo = "img/secondary-logo.png"
-  description = "Personal website for Benjamin Trigona-Harany"
+  description = "Personal website and writings for Benjamin Trigona-Harany"
   # copyright = "Copy, _right?_ :thinking_face:"
-
-[author]
-  name = "Benjamin Trigona-Harany"
-  image = "img/author.jpg"
-  #headline = ""
-  #bio = "A little bit about you"
-  links = [
-    { link = "https://www.jaxartes.net/" },
-    { email = "mailto:info@jaxartes.net" },
-    { github = "https://github.com/bosth" },
-    { linkedin = "https://linkedin.com/in/benth" },
-    { mastodon = "https://mapstodon.space/@jerseybastion" },
-    { worldcat = "https://www.worldcat.org/search?q=Benjamin+Trigona+Harany" },
-  ]
