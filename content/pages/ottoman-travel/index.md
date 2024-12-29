@@ -139,14 +139,13 @@ Using Dijkstra's algorithm and the data from the 1899 map, I calculated the opti
 * Tokat to Ünye via Gümenek, Niksar, Karakuş (chaussee, 1 day, 5 hours)
 * Ünye to Selânik via Samsun, İstanbul, Gelibolu, Çanakkale (ship, 3 days)
 
-
 ## An Application
 
 I published a simple web application as "Ottoman Route Finder" at https://www.jaxartes.net/ottoman-route-finder/ so anyone can calculate that it takes about six days and ten hours to travel from Devebağırtan Kapısı (me neither) to İd.
 
 ![Route plan](devebagirtankapisi.webp "Route plan from Devebağırtan Kapısı in the Balkans to İd near Erzurum")
 
-In addition to PostgreSQL, PostGIS and pgRouting, the tech stack includes [GeoServer](https://geoserver.org/) to expose the database via a Web Feature Service (WFS) and [OpenLayers](https://openlayers.org/) as a web-mapping library.
+In addition to PostgreSQL, PostGIS and pgRouting, I am using [OpenLayers](https://openlayers.org/) as a web-mapping library.
 
 <video controls>
 <source src="orf.mp4" type="video/mp4" preload="auto">
@@ -155,11 +154,28 @@ In addition to PostgreSQL, PostGIS and pgRouting, the tech stack includes [GeoSe
 ### Limitations
 
 * The application is only as good as the input data so I am relying on the mapmakers' and *sâlnâme* authors' accuracy.
-* Timetables for the railways are not available, so the travel times that you see are very much how long someone would have literally been travelling as opposed to how long it would have taken end-to-end.
 * In some cases, maps show connections but there is no travel time given; in those cases, I estimated the travel time based on the connection type and the typical time needed to travel that distance based on other connections in the map. This assumption may be wrong.
 * I added ferries across the Bosphorus and known tramlines inside Istanbul, but I do not have timetables for these, so durations are estimated.
-* Since the railway connections are measured in kilometres rather than hours, I also estimated those.
-* I did not complete my digitisation of the 1899 map, but it does include the Balkans and most of Anatolia.
+* On the map, the railway connections are measured in kilometres rather than hours, so I had to estimate the journey times. However, I did find the duration of train travel for some journeys in other sources (for example Mudanya to Bursa), so I was able to program in accurate rail journey times for those.
+* In all cases, the travel times that you see do not include any time spent waiting for onward transportation or time spent at intermediary points.
+
+### Other sources
+
+Besides the maps, I referenced many other sources, in particular for train travel details.
+
+* [Trains of Turkey](http://www.trainsofturkey.com/)
+* [Bursa Seyahatim](https://www.facebook.com/TariheSeyahat/posts/152795400716778/)
+* [Steam over Macedonia](https://archive.org/details/steamovermacedon00goun/page/n3/mode/2up)
+* [The Taurus Express to Iraq and Egypt](https://retours.eu/en/51-taurus-express-iraq-egypt/)
+* [Beirut Train](https://www.cantab.net/users/brian.walling/MiddleEast/2020%2008%2016%20Beirut%20train%20text%20v2.0.pdf)
+
+### Changelog
+
+* `2024-12-22`: add icons and collapsable details
+* `2024-12-24`: add options menu
+* `2024-12-26`: add a right click dialog menu to select the route origin or destination
+* `2024-12-29`: switch to a materialized view in PostgreSQL to reduce the query overhead
+* `2024-12-29`: replace [GeoServer](https://geoserver.org/) with a light-weight server
 
 [^cercis]: This is loosely based on the actual case of Cercîs Efendi, a Syriac Christian who held these positions in the late nineteenth and early twentieth centuries. He later lived in Samsun on the Black Sea coast.
 [^danforth]: I believe this map came to me from Nick Danforth of http://www.midafternoonmap.com/ fame.
