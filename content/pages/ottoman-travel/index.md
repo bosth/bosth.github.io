@@ -168,6 +168,9 @@ Besides the maps, I referenced many other sources, in particular for train trave
 * [Steam over Macedonia](https://archive.org/details/steamovermacedon00goun/page/n3/mode/2up)
 * [The Taurus Express to Iraq and Egypt](https://retours.eu/en/51-taurus-express-iraq-egypt/)
 * [Beirut Train](https://www.cantab.net/users/brian.walling/MiddleEast/2020%2008%2016%20Beirut%20train%20text%20v2.0.pdf)
+* [Land Transportation in Istanbul](https://istanbultarihi.ist/583-land-transportation-in-istanbul)
+* [Osmanli Devleti’nde Demiryolu Ulaşımı](https://www.academia.edu/94990395/Osmanli_Devleti_nde_Demiryolu_Ula%C5%9F%C4%B1m%C4%B1_1913_Tarihli_%C5%9Eark_Ticaret_Y%C4%B1ll%C4%B1%C4%9F%C4%B1na_G%C3%B6re)
+* [İstanbul'da Kara Ulaşımı](https://istanbultarihi.ist/assets/uploads/pdf/istanbulda-kara-ulasimi-219.pdf)
 
 ### Changelog
 
