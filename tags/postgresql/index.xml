@@ -2,9 +2,20 @@
 &lt;h2 class="relative group">&lt;code>plpygis&lt;/code>
 &lt;div id="plpygis" class="anchor">&lt;/div>
 &lt;span
-class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-style="text-decoration-line: none !important;" href="#plpygis" aria-label="Anchor">#&lt;/a>
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none">
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#plpygis" aria-label="Anchor">#&lt;/a>
 &lt;/span>
 &lt;/h2>
-&lt;p>&lt;code>plpygis&lt;/code> is a pure Python module with no dependencies that can convert geometries between &lt;a href="https://en.wikipedia.org/wiki/Well-known_binary" target="_blank">Well-known binary&lt;/a> (WKB/EWKB), &lt;a href="https://en.wikipedia.org/wiki/Well-known_text_representation_of_geometry" target="_blank">Well-known Text&lt;/a> (WKT/EWKT) and GeoJSON representations. &lt;code>plpygis&lt;/code> is mainly intended for use in PostgreSQL &lt;a href="https://www.postgresql.org/docs/current/plpython.html" target="_blank">PL/Python&lt;/a> functions to augment &lt;a href="https://postgis.net/" target="_blank">PostGIS&lt;/a>&amp;rsquo;s native capabilities.&lt;/p></description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://www.jaxartes.net/pages/python-postgis/featured.png"/></item></channel></rss>
+&lt;p>&lt;code>plpygis&lt;/code> is a pure Python module with no dependencies that can convert geometries between &lt;a
+href="https://en.wikipedia.org/wiki/Well-known_binary"
+target="_blank"
+>Well-known binary&lt;/a> (WKB/EWKB), &lt;a
+href="https://en.wikipedia.org/wiki/Well-known_text_representation_of_geometry"
+target="_blank"
+>Well-known Text&lt;/a> (WKT/EWKT) and GeoJSON representations. &lt;code>plpygis&lt;/code> is mainly intended for use in PostgreSQL &lt;a
+href="https://www.postgresql.org/docs/current/plpython.html"
+target="_blank"
+>PL/Python&lt;/a> functions to augment &lt;a
+href="https://postgis.net/"
+target="_blank"
+>PostGIS&lt;/a>&amp;rsquo;s native capabilities.&lt;/p></description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://www.jaxartes.net/pages/python-postgis/featured.png"/></item></channel></rss>

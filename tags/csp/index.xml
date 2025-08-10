@@ -4,9 +4,8 @@ Mission planning with the Z3 Theorem Prover
 &lt;h2 class="relative group">Leaving Earth
 &lt;div id="leaving-earth" class="anchor">&lt;/div>
 &lt;span
-class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-style="text-decoration-line: none !important;" href="#leaving-earth" aria-label="Anchor">#&lt;/a>
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none">
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#leaving-earth" aria-label="Anchor">#&lt;/a>
 &lt;/span>
 &lt;/h2>
 &lt;p>Leaving Earth is a board game by Joseph Fatula that recreates the space race of the 1950s, 60s and 70s.&lt;/p></description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://www.jaxartes.net/pages/leaving-earth/featured.webp"/></item></channel></rss>
