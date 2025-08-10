@@ -34,9 +34,7 @@ The function above can be called with a normal SQL statement:
 SELECT swap(geom) FROM city;
 ```
 
-I spoke about **plpygis** at FOSS4G 2017 in Boston. The slides are [here](https://2017.foss4g.org/post_conference/Extending-PostGIS-with-Python.pdf) and a video of the talk is also available. I also presented an example of using `plpygis` for some real-world analysis at FOSS4G 2023 in Prizren, and you can find a write-up [here]({{< ref "ads-b" >}}).
-
-{{< vimeo id="248099711" title="Extending PostGIS with Python" >}}
+I spoke about **plpygis** at FOSS4G 2017 in Boston. The slides are [here](https://2017.foss4g.org/post_conference/Extending-PostGIS-with-Python.pdf) and [a video of the talk](https://av.tib.eu/media/40978) is also available. I also presented an example of using `plpygis` for some real-world analysis at FOSS4G 2023 in Prizren, and you can find a write-up [here]({{< ref "ads-b" >}}).
 
 <br />
 
