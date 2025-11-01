@@ -171,6 +171,8 @@ Besides the maps, I referenced many other sources, in particular for train trave
 * [Land Transportation in Istanbul](https://istanbultarihi.ist/583-land-transportation-in-istanbul)
 * [Osmanli Devleti’nde Demiryolu Ulaşımı](https://www.academia.edu/94990395/Osmanli_Devleti_nde_Demiryolu_Ula%C5%9F%C4%B1m%C4%B1_1913_Tarihli_%C5%9Eark_Ticaret_Y%C4%B1ll%C4%B1%C4%9F%C4%B1na_G%C3%B6re)
 * [İstanbul'da Kara Ulaşımı](https://istanbultarihi.ist/assets/uploads/pdf/istanbulda-kara-ulasimi-219.pdf)
+* [Actors of Change: Railway Projects and Urban Architecture of Balkan Cities in the Late Ottoman Period](https://etd.lib.metu.edu.tr/upload/12616073/index.pdf)
+* [A Handboook of Bulgaria](https://dn721709.ca.archive.org/0/items/handbookofbulgar00grea/handbookofbulgar00grea.pdf)
 
 ### Changelog
 
