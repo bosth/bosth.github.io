@@ -172,7 +172,14 @@ Besides the maps, I referenced many other sources, in particular for train trave
 * [Osmanli Devleti’nde Demiryolu Ulaşımı](https://www.academia.edu/94990395/Osmanli_Devleti_nde_Demiryolu_Ula%C5%9F%C4%B1m%C4%B1_1913_Tarihli_%C5%9Eark_Ticaret_Y%C4%B1ll%C4%B1%C4%9F%C4%B1na_G%C3%B6re)
 * [İstanbul'da Kara Ulaşımı](https://istanbultarihi.ist/assets/uploads/pdf/istanbulda-kara-ulasimi-219.pdf)
 * [Actors of Change: Railway Projects and Urban Architecture of Balkan Cities in the Late Ottoman Period](https://etd.lib.metu.edu.tr/upload/12616073/index.pdf)
-* [A Handboook of Bulgaria](https://dn721709.ca.archive.org/0/items/handbookofbulgar00grea/handbookofbulgar00grea.pdf)
+* [A Handbook of Bulgaria](https://dn721709.ca.archive.org/0/items/handbookofbulgar00grea/handbookofbulgar00grea.pdf)
+* [A Handbook of Macedonia](https://digital.lib.auth.gr/record/150263/files/Auth%20Lib%20Handboo%20of%20Macedonia%20and%20surrounding%20territories.pdf)
+* [A Handbook of Turkey in Europe](https://www.qdl.qa/en/archive/81055/vdc_100000000239.0x0001e2)
+* [A Handbook of Mesopotamia](https://archive.org/details/handbkmesopotamiavol4corrections/page/n333/mode/2up)
+* [A Handbook of Syria](https://archive.org/details/handbksyria)
+* A Handboook of Asia Minor, [volume 1](https://dn790007.ca.archive.org/0/items/handbookofasiami01greauoft/handbookofasiami01greauoft.pdf) and [volume 2](https://archive.org/details/handbkasiaminorvol2/page/535/mode/2up), [volume 3, part II](https://archive.org/details/handbkasiaminorvol3pt2/page/n9/mode/2up)
+* [Greek Rail Tickets](https://www.greekrailtickets.gr/)
+* [Levantine Heritage](https://www.levantineheritage.com/aidin-personnel.html)
 
 ### Changelog
 
