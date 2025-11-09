@@ -180,6 +180,7 @@ Besides the maps, I referenced many other sources, in particular for train trave
 * A Handboook of Asia Minor, [volume 1](https://dn790007.ca.archive.org/0/items/handbookofasiami01greauoft/handbookofasiami01greauoft.pdf) and [volume 2](https://archive.org/details/handbkasiaminorvol2/page/535/mode/2up), [volume 3, part II](https://archive.org/details/handbkasiaminorvol3pt2/page/n9/mode/2up)
 * [Greek Rail Tickets](https://www.greekrailtickets.gr/)
 * [Levantine Heritage](https://www.levantineheritage.com/aidin-personnel.html)
+* [Les tramways belges dans l’Empire ottoman](https://www.levantineheritage.com/pdf/Empire-ottoman-Dussart-Desart.pdf)
 
 ### Changelog
 
