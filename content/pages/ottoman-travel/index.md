@@ -178,9 +178,11 @@ Besides the maps, I referenced many other sources, in particular for train trave
 * [A Handbook of Mesopotamia](https://archive.org/details/handbkmesopotamiavol4corrections/page/n333/mode/2up)
 * [A Handbook of Syria](https://archive.org/details/handbksyria)
 * A Handboook of Asia Minor, [volume 1](https://dn790007.ca.archive.org/0/items/handbookofasiami01greauoft/handbookofasiami01greauoft.pdf) and [volume 2](https://archive.org/details/handbkasiaminorvol2/page/535/mode/2up), [volume 3, part II](https://archive.org/details/handbkasiaminorvol3pt2/page/n9/mode/2up)
+* [A Handbook on Northern Palestine and Southern Syria](https://nla.gov.au/nla.obj-233087803/view)
 * [Greek Rail Tickets](https://www.greekrailtickets.gr/)
 * [Levantine Heritage](https://www.levantineheritage.com/aidin-personnel.html)
 * [Les tramways belges dans l’Empire ottoman](https://www.levantineheritage.com/pdf/Empire-ottoman-Dussart-Desart.pdf)
+* [Ameli Elektrik](https://archives.saltresearch.org/handle/123456789/129281)
 
 ### Changelog
 
