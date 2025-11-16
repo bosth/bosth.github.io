@@ -155,9 +155,28 @@ In addition to PostgreSQL, PostGIS and pgRouting, I am using [OpenLayers](https:
 
 * The application is only as good as the input data so I am relying on the mapmakers' and *sâlnâme* authors' accuracy.
 * In some cases, maps show connections but there is no travel time given; in those cases, I estimated the travel time based on the connection type and the typical time needed to travel that distance based on other connections in the map. This assumption may be wrong.
-* I added ferries across the Bosphorus and known tramlines inside Istanbul and Izmir, but I do not have timetables for these, so durations are estimated.
-* On the map, the railway connections are measured in kilometres rather than hours, so I had to estimate the journey times. However, I did find the duration of train travel for some journeys in other sources (for example Mudanya to Bursa), so I was able to program in accurate rail journey times for those.
-* In all cases, the travel times that you see do not include any time spent waiting for onward transportation or time spent at intermediary points.
+* In most cases, rail and tram travel times are also estimates. Only in some cases is accurate data available (for example Mudanya to Bursa).
+* In all cases, the stated times are just the *travel* times and do not include any time spent waiting for onward transportation or time spent at intermediary points.
+
+### To do
+
+- [ ] Missing land routes in Rumeli
+- [ ] Missing land routes in Anatolia
+- [ ] Missing land routes in Mesopotamia
+- [ ] Missing land routes in the Levant
+- [ ] Missing land routes in Arabia
+- [x] Beirut-Damascus railroad
+- [x] Named lines, e.g. *İzmir-Aydın Demiryolu*
+- [ ] penalty for switching lines
+- [ ] Beirut tramway stations
+- [ ] Damascus tramway
+- [ ] Tripoli tramway
+- [ ] Salonica tramway
+- [ ] Aleppo tramway
+- [ ] İzmir tramway
+- [ ] Jezreel Valley railway
+- [ ] *Şirket-i Hayriye* and other ferries
+- [ ] Hejaz railroad
 
 ### Other sources
 
