@@ -160,11 +160,11 @@ In addition to PostgreSQL, PostGIS and pgRouting, I am using [OpenLayers](https:
 
 ### To do
 
-- [ ] Missing land routes in Rumeli
-- [ ] Missing land routes in Anatolia
-- [ ] Missing land routes in Mesopotamia
-- [ ] Missing land routes in the Levant
-- [ ] Missing land routes in Arabia
+- [ ] Land routes in Rumeli
+- [ ] Land routes in Anatolia
+- [ ] Land routes in Mesopotamia
+- [ ] Land routes in the Levant
+- [ ] Land routes in Arabia
 - [x] Beirut-Damascus railroad
 - [x] Named lines, e.g. *İzmir-Aydın Demiryolu*
 - [ ] penalty for switching lines
@@ -174,7 +174,9 @@ In addition to PostgreSQL, PostGIS and pgRouting, I am using [OpenLayers](https:
 - [ ] Salonica tramway
 - [ ] Aleppo tramway
 - [ ] İzmir tramway
-- [ ] Jezreel Valley railway
+- [x] Jezreel Valley railway
+- [x] Bosra railway
+- [ ] Jaffa-Jerusalem railway
 - [ ] *Şirket-i Hayriye* and other ferries
 - [ ] Hejaz railroad
 
