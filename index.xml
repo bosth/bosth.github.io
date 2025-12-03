@@ -1,4 +1,25 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Benjamin Trigona-Harany | jaxartes.net</title><link>https://www.jaxartes.net/</link><description>Recent content on Benjamin Trigona-Harany | jaxartes.net</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Thu, 01 Aug 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://www.jaxartes.net/index.xml" rel="self" type="application/rss+xml"/><item><title>Python for PostGIS</title><link>https://www.jaxartes.net/pages/python-postgis/</link><pubDate>Thu, 01 Aug 2024 00:00:00 +0000</pubDate><guid>https://www.jaxartes.net/pages/python-postgis/</guid><description>&lt;p>I wrote and maintain two Python modules that make it easier to use geospatial Python from within your PostgreSQL database.&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Benjamin Trigona-Harany | jaxartes.net</title><link>https://www.jaxartes.net/</link><description>Recent content on Benjamin Trigona-Harany | jaxartes.net</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Mon, 01 Dec 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://www.jaxartes.net/index.xml" rel="self" type="application/rss+xml"/><item><title>Mapping Ottoman transit networks</title><link>https://www.jaxartes.net/pages/ottoman-transit/</link><pubDate>Mon, 01 Dec 2025 00:00:00 +0000</pubDate><guid>https://www.jaxartes.net/pages/ottoman-transit/</guid><description>&lt;div class="lead text-neutral-500 dark:text-neutral-400 !mb-9 text-xl">
+&lt;/div>
+&lt;p>This will be documenting updates to my &lt;a
+href="https://www.jaxartes.net/pages/ottoman-travel/">Ottoman Navigation&lt;/a> project, with a focus on better mapping of the Ottoman railway and transit networks.&lt;/p>
+&lt;p>
+&lt;figure>
+&lt;img
+class="my-0 rounded-md"
+loading="lazy"
+decoding="async"
+fetchpriority="low"
+alt="Oriental Railways Company Arch in Selânik"
+srcset="
+/pages/ottoman-transit/selanik_orc_arch_hu_237c5ce7b6efbc13.jpg 330w,
+/pages/ottoman-transit/selanik_orc_arch_hu_9927c4fe49254224.jpg 660w,
+/pages/ottoman-transit/selanik_orc_arch_hu_ba102f1de4fead5c.jpg 1280w
+"
+data-zoom-src="https://www.jaxartes.net/pages/ottoman-transit/selanik_orc_arch.jpg"
+src="https://www.jaxartes.net/pages/ottoman-transit/selanik_orc_arch.jpg">
+&lt;figcaption>Tramway under the Oriental Railways Company Arch: Selânik, 1911&lt;/figcaption>
+&lt;/figure>
+&lt;/p></description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://www.jaxartes.net/pages/ottoman-transit/featured.jpg"/></item><item><title>Python for PostGIS</title><link>https://www.jaxartes.net/pages/python-postgis/</link><pubDate>Thu, 01 Aug 2024 00:00:00 +0000</pubDate><guid>https://www.jaxartes.net/pages/python-postgis/</guid><description>&lt;p>I wrote and maintain two Python modules that make it easier to use geospatial Python from within your PostgreSQL database.&lt;/p>
 &lt;h2 class="relative group">&lt;code>plpygis&lt;/code>
 &lt;div id="plpygis" class="anchor">&lt;/div>
 &lt;span
@@ -38,7 +59,10 @@ class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 
 &lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#leaving-earth" aria-label="Anchor">#&lt;/a>
 &lt;/span>
 &lt;/h2>
-&lt;p>Leaving Earth is a board game by Joseph Fatula that recreates the space race of the 1950s, 60s and 70s.&lt;/p></description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://www.jaxartes.net/pages/leaving-earth/featured.webp"/></item><item><title>Mount Mountain Mountain</title><link>https://www.jaxartes.net/pages/mt-mountain-mountain/</link><pubDate>Fri, 01 Jan 2016 00:00:00 +0000</pubDate><guid>https://www.jaxartes.net/pages/mt-mountain-mountain/</guid><description>&lt;div class="lead text-neutral-500 dark:text-neutral-400 !mb-9 text-xl">
+&lt;p>Leaving Earth is a board game by Joseph Fatula that recreates the space race of the 1950s, 60s and 70s.&lt;/p></description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://www.jaxartes.net/pages/leaving-earth/featured.webp"/></item><item><title>Navigation in the Ottoman Era</title><link>https://www.jaxartes.net/pages/ottoman-travel/</link><pubDate>Wed, 01 Apr 2020 00:00:00 +0000</pubDate><guid>https://www.jaxartes.net/pages/ottoman-travel/</guid><description>&lt;div class="lead text-neutral-500 dark:text-neutral-400 !mb-9 text-xl">
+A geospatial solution to Ottoman travel times
+&lt;/div>
+&lt;p>Imagine you were a bureaucrat in the Ottoman government and your posting as assistant governor of the province of Sivas had ended and you were about to take up a position on a commission in the city of Selânik (Thessaloniki).&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>&lt;/p></description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://www.jaxartes.net/pages/ottoman-travel/featured.webp"/></item><item><title>Mount Mountain Mountain</title><link>https://www.jaxartes.net/pages/mt-mountain-mountain/</link><pubDate>Fri, 01 Jan 2016 00:00:00 +0000</pubDate><guid>https://www.jaxartes.net/pages/mt-mountain-mountain/</guid><description>&lt;div class="lead text-neutral-500 dark:text-neutral-400 !mb-9 text-xl">
 An Ottoman Turkish tautology
 &lt;/div>
 &lt;p>Wikipedia has an article on a place called &lt;a
@@ -49,10 +73,7 @@ target="_blank"
 &lt;p>The name &amp;ldquo;Pendle Hill&amp;rdquo; combines the words for hill from three different languages &amp;hellip; In the 13th century it was called &lt;em>Pennul&lt;/em> or &lt;em>Penhul&lt;/em>, apparently from the Cumbric &lt;em>pen&lt;/em> and Old English &lt;em>hyll&lt;/em>, both meaning &amp;ldquo;hill&amp;rdquo;. The modern English &amp;ldquo;hill&amp;rdquo; was appended later, after the original meaning of Pendle had become opaque.&lt;/p></description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://www.jaxartes.net/pages/mt-mountain-mountain/featured.png"/></item><item><title>Adıyamanlı Süryânîler</title><link>https://www.jaxartes.net/pages/adiyaman/</link><pubDate>Thu, 01 Jan 2015 00:00:00 +0000</pubDate><guid>https://www.jaxartes.net/pages/adiyaman/</guid><description>&lt;div class="lead text-neutral-500 dark:text-neutral-400 !mb-9 text-xl">
 Primary sources on Syriacs of Ottoman Adıyaman
 &lt;/div>
-&lt;p>&lt;em>Adıyamanlı Süryânîler&lt;/em> is a work I prepared that collects texts relating to the Syriac (Süryânî) community of Adıyaman and its environs in the early twentieth century. The document is composed of two parts, first being &lt;em>Adıyaman Tarihi&lt;/em>, a biographical manuscript written by Bulıs Monofar and the second a collection of articles collected from early-twentieth century Syriac journals published in the Ottoman Empire and the United States.&lt;/p></description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://www.jaxartes.net/pages/adiyaman/featured.png"/></item><item><title>Navigation in the Ottoman Era</title><link>https://www.jaxartes.net/pages/ottoman-travel/</link><pubDate>Sun, 01 Apr 2012 00:00:00 +0000</pubDate><guid>https://www.jaxartes.net/pages/ottoman-travel/</guid><description>&lt;div class="lead text-neutral-500 dark:text-neutral-400 !mb-9 text-xl">
-A geospatial solution to Ottoman travel times
-&lt;/div>
-&lt;p>Imagine you were a bureaucrat in the Ottoman government and your posting as assistant governor of the province of Sivas had ended and you were about to take up a position on a commission in the city of Selânik (Thessaloniki).&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>&lt;/p></description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://www.jaxartes.net/pages/ottoman-travel/featured.webp"/></item><item><title>Bāla’y-balan</title><link>https://www.jaxartes.net/pages/balaybalan/</link><pubDate>Thu, 01 Mar 2012 00:00:00 +0000</pubDate><guid>https://www.jaxartes.net/pages/balaybalan/</guid><description>&lt;div class="lead text-neutral-500 dark:text-neutral-400 !mb-9 text-xl">
+&lt;p>&lt;em>Adıyamanlı Süryânîler&lt;/em> is a work I prepared that collects texts relating to the Syriac (Süryânî) community of Adıyaman and its environs in the early twentieth century. The document is composed of two parts, first being &lt;em>Adıyaman Tarihi&lt;/em>, a biographical manuscript written by Bulıs Monofar and the second a collection of articles collected from early-twentieth century Syriac journals published in the Ottoman Empire and the United States.&lt;/p></description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://www.jaxartes.net/pages/adiyaman/featured.png"/></item><item><title>Bāla’y-balan</title><link>https://www.jaxartes.net/pages/balaybalan/</link><pubDate>Thu, 01 Mar 2012 00:00:00 +0000</pubDate><guid>https://www.jaxartes.net/pages/balaybalan/</guid><description>&lt;div class="lead text-neutral-500 dark:text-neutral-400 !mb-9 text-xl">
 An Ottoman constructed language
 &lt;/div>
 &lt;p>World-famous constructed languages range from Zamenhof&amp;rsquo;s Esperanto to Tolkien&amp;rsquo;s Quenya to hobbyist &amp;ldquo;&lt;a
