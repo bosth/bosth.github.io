@@ -1,7 +1,7 @@
 ---
 title: "Navigation in the Ottoman Era"
 tags: [ottoman, history, geospatial]
-date: 2012-04-01
+date: 2020-04-01
 ---
 
 {{< lead >}}
@@ -153,57 +153,10 @@ In addition to PostgreSQL, PostGIS and pgRouting, I am using [OpenLayers](https:
 
 ### Limitations
 
-* The application is only as good as the input data so I am relying on the mapmakers' and *sâlnâme* authors' accuracy.
+* The application is only as good as the input data so I rely on the mapmakers' and *sâlnâme* authors' accuracy.
 * In some cases, maps show connections but there is no travel time given; in those cases, I estimated the travel time based on the connection type and the typical time needed to travel that distance based on other connections in the map. This assumption may be wrong.
 * In most cases, rail and tram travel times are also estimates. Only in some cases is accurate data available (for example Mudanya to Bursa).
 * In all cases, the stated times are just the *travel* times and do not include any time spent waiting for onward transportation or time spent at intermediary points.
-
-### To do
-
-- [ ] Land routes in Rumeli
-- [ ] Land routes in Anatolia
-- [ ] Land routes in Mesopotamia
-- [ ] Land routes in the Levant
-- [ ] Land routes in Arabia
-- [x] Beirut-Damascus railroad
-- [x] Named lines, e.g. *İzmir-Aydın Demiryolu*
-- [ ] penalty for switching lines
-- [ ] Beirut tramway stations
-- [ ] Damascus tramway
-- [ ] Tripoli tramway
-- [ ] Salonica tramway
-- [ ] Aleppo tramway
-- [ ] İzmir tramway
-- [x] Jezreel Valley railway
-- [x] Bosra railway
-- [ ] Jaffa-Jerusalem railway
-- [ ] *Şirket-i Hayriye* and other ferries
-- [ ] Hejaz railroad
-
-### Other sources
-
-Besides the maps, I referenced many other sources, in particular for train travel details.
-
-* [Trains of Turkey](http://www.trainsofturkey.com/)
-* [Bursa Seyahatim](https://www.facebook.com/TariheSeyahat/posts/152795400716778/)
-* [Steam over Macedonia](https://archive.org/details/steamovermacedon00goun/page/n3/mode/2up)
-* [The Taurus Express to Iraq and Egypt](https://retours.eu/en/51-taurus-express-iraq-egypt/)
-* [Beirut Train](https://www.cantab.net/users/brian.walling/MiddleEast/2020%2008%2016%20Beirut%20train%20text%20v2.0.pdf)
-* [Land Transportation in Istanbul](https://istanbultarihi.ist/583-land-transportation-in-istanbul)
-* [Osmanli Devleti’nde Demiryolu Ulaşımı](https://www.academia.edu/94990395/Osmanli_Devleti_nde_Demiryolu_Ula%C5%9F%C4%B1m%C4%B1_1913_Tarihli_%C5%9Eark_Ticaret_Y%C4%B1ll%C4%B1%C4%9F%C4%B1na_G%C3%B6re)
-* [İstanbul'da Kara Ulaşımı](https://istanbultarihi.ist/assets/uploads/pdf/istanbulda-kara-ulasimi-219.pdf)
-* [Actors of Change: Railway Projects and Urban Architecture of Balkan Cities in the Late Ottoman Period](https://etd.lib.metu.edu.tr/upload/12616073/index.pdf)
-* [A Handbook of Bulgaria](https://dn721709.ca.archive.org/0/items/handbookofbulgar00grea/handbookofbulgar00grea.pdf)
-* [A Handbook of Macedonia](https://digital.lib.auth.gr/record/150263/files/Auth%20Lib%20Handboo%20of%20Macedonia%20and%20surrounding%20territories.pdf)
-* [A Handbook of Turkey in Europe](https://www.qdl.qa/en/archive/81055/vdc_100000000239.0x0001e2)
-* [A Handbook of Mesopotamia](https://archive.org/details/handbkmesopotamiavol4corrections/page/n333/mode/2up)
-* [A Handbook of Syria](https://archive.org/details/handbksyria)
-* A Handboook of Asia Minor, [volume 1](https://dn790007.ca.archive.org/0/items/handbookofasiami01greauoft/handbookofasiami01greauoft.pdf) and [volume 2](https://archive.org/details/handbkasiaminorvol2/page/535/mode/2up), [volume 3, part II](https://archive.org/details/handbkasiaminorvol3pt2/page/n9/mode/2up)
-* [A Handbook on Northern Palestine and Southern Syria](https://nla.gov.au/nla.obj-233087803/view)
-* [Greek Rail Tickets](https://www.greekrailtickets.gr/)
-* [Levantine Heritage](https://www.levantineheritage.com/aidin-personnel.html)
-* [Les tramways belges dans l’Empire ottoman](https://www.levantineheritage.com/pdf/Empire-ottoman-Dussart-Desart.pdf)
-* [Ameli Elektrik](https://archives.saltresearch.org/handle/123456789/129281)
 
 ### Changelog
 
