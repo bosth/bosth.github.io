@@ -17,14 +17,18 @@ A work-in-progress application is here: https://www.jaxartes.net/ottoman-routing
 
 - [x] Named lines, e.g. *İzmir-Aydın Demiryolu*
 - [x] penalty for switching lines
+- [ ] Maritime routes
+- [ ] *Şirket-i Hayriye* and other ferries
+- [ ] Tigris and Euphrates steamers
+- [ ] Anatolian river steamers (Sakarya and Kızılırmak rivers)
 - [ ] Aleppo tramway
 - [x] Baghdad tramway
-- [ ] Beirut tramway stations
-- [ ] Damascus tramway
+- [x] Beirut tramway
+- [x] Damascus tramway
 - [x] Istanbul tramway
 - [ ] Izmir tramway
 - [x] Najaf-Kufa tramway
-- [ ] Salonica tramway
+- [x] Salonica tramway
 - [x] Tramway Libanais
 - [ ] Tripoli tramway
 - [x] Jezreel Valley railway
@@ -42,13 +46,10 @@ A work-in-progress application is here: https://www.jaxartes.net/ottoman-routing
 - [x] Adana-Mersin railway
 - [x] Baghdad railways
 - [x] Aleppo railways
-- [ ] *Şirket-i Hayriye* and other ferries
-- [ ] Maritime routes
-- [ ] Clustered transit stops
+- [x] Clustered transit stops
 - [x] Line colours
-- [ ] Tigris and Euphrates steamers
 
-### Other sources
+### Sources
 
 Selected list of sources:
 
@@ -62,16 +63,18 @@ Selected list of sources:
 * [İstanbul'da Kara Ulaşımı](https://istanbultarihi.ist/assets/uploads/pdf/istanbulda-kara-ulasimi-219.pdf)
 * [Actors of Change: Railway Projects and Urban Architecture of Balkan Cities in the Late Ottoman Period](https://etd.lib.metu.edu.tr/upload/12616073/index.pdf)
 * [Infrastructures of the Self in Late Ottoman Iraq](https://trafo.hypotheses.org/28757)
-* [A Handbook of Bulgaria](https://dn721709.ca.archive.org/0/items/handbookofbulgar00grea/handbookofbulgar00grea.pdf)
-* [A Handbook of Macedonia](https://digital.lib.auth.gr/record/150263/files/Auth%20Lib%20Handboo%20of%20Macedonia%20and%20surrounding%20territories.pdf)
-* [A Handbook of Turkey in Europe](https://www.qdl.qa/en/archive/81055/vdc_100000000239.0x0001e2)
-* [A Handbook of Mesopotamia](https://archive.org/details/handbkmesopotamiavol4corrections/page/n333/mode/2up)
-* [A Handbook of Syria](https://archive.org/details/handbksyria)
-* A Handboook of Asia Minor, [volume 1](https://dn790007.ca.archive.org/0/items/handbookofasiami01greauoft/handbookofasiami01greauoft.pdf) and [volume 2](https://archive.org/details/handbkasiaminorvol2/page/535/mode/2up), [volume 3, part II](https://archive.org/details/handbkasiaminorvol3pt2/page/n9/mode/2up)
-* [A Handbook on Northern Palestine and Southern Syria](https://nla.gov.au/nla.obj-233087803/view)
+* Great Britain Admiralty handbooks: [Bulgaria](https://dn721709.ca.archive.org/0/items/handbookofbulgar00grea/handbookofbulgar00grea.pdf), [Macedonia](https://digital.lib.auth.gr/record/150263/files/Auth%20Lib%20Handboo%20of%20Macedonia%20and%20surrounding%20territories.pdf), [Turkey in Europe](https://www.qdl.qa/en/archive/81055/vdc_100000000239.0x0001e2), [Mesopotamia](https://archive.org/details/handbkmesopotamiavol4corrections/page/n333/mode/2up), [Syria](https://archive.org/details/handbksyria), Asia Minor ([volume 1](https://dn790007.ca.archive.org/0/items/handbookofasiami01greauoft/handbookofasiami01greauoft.pdf), [volume 2](https://archive.org/details/handbkasiaminorvol2/page/535/mode/2up), [volume 3, part II](https://archive.org/details/handbkasiaminorvol3pt2/page/n9/mode/2up)), [Northern Palestine and Southern Syria](https://nla.gov.au/nla.obj-233087803/view)
 * [Greek Rail Tickets](https://www.greekrailtickets.gr/)
 * [Levantine Heritage](https://www.levantineheritage.com/aidin-personnel.html)
 * [Les tramways belges dans l’Empire ottoman](https://www.levantineheritage.com/pdf/Empire-ottoman-Dussart-Desart.pdf)
 * [Ameli Elektrik](https://archives.saltresearch.org/handle/123456789/129281)
 
-### Changelog
+### Missing information
+
+- Baghdad tramway: station names
+- Beirut tramway: station and Turkish line names
+- Damascus tramway: station and line names
+- Istanbul tramway: contradictory information on Haliç and Maçka lines
+- Salonica tramway: station and line names; uncertainty around Şehir İstasyonu stop, third line running along Sadri Paşa Caddesi; lines post-electrification
+- JSC railways: opening of Dedeağaç line and stations; operation of Ferecik branch
+- Bosra railway: number of stations in Bosra and their names
