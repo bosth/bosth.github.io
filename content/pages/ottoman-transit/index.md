@@ -1,5 +1,5 @@
 ---
-title: "Mapping Ottoman transit networks"
+title: "Mapping Ottoman transportation networks"
 tags: [ottoman, history, geospatial]
 date: 2025-12-01
 ---
@@ -7,11 +7,11 @@ date: 2025-12-01
 {{< lead >}} 
 {{< /lead >}}
 
-This will be documenting updates to my [Ottoman Navigation]({{< relref "ottoman-travel.md" >}}) project, with a focus on better mapping of the Ottoman railway and transit networks.
+This will be documenting updates to my [Ottoman Navigation]({{< relref "ottoman-travel.md" >}}) project, with an initial focus on better mapping of the Ottoman railway and transit networks.
 
 ![Oriental Railways Company Arch in Selânik](selanik_orc_arch.jpg "Tramway under the Oriental Railways Company Arch: Selânik, 1911")
 
-A work-in-progress application is here: https://www.jaxartes.net/ottoman-routing/
+A work-in-progress application may be found at https://www.jaxartes.net/ottoman-routing/ while the older application is at https://www.jaxartes.net/ottoman-route-finder/.
 
 ### To do
 
@@ -21,7 +21,6 @@ A work-in-progress application is here: https://www.jaxartes.net/ottoman-routing
 - [ ] *Şirket-i Hayriye* and other ferries
 - [ ] Tigris and Euphrates steamers
 - [ ] Anatolian river steamers (Sakarya and Kızılırmak rivers)
-- [ ] Aleppo tramway
 - [x] Baghdad tramway
 - [x] Beirut tramway
 - [x] Damascus tramway
@@ -30,7 +29,7 @@ A work-in-progress application is here: https://www.jaxartes.net/ottoman-routing
 - [x] Najaf-Kufa tramway
 - [x] Salonica tramway
 - [x] Tramway Libanais
-- [ ] Tripoli tramway
+- [x] Tripoli tramway
 - [x] Jezreel Valley railway
 - [x] Bosra railway
 - [x] Jaffa-Jerusalem railway
@@ -48,6 +47,9 @@ A work-in-progress application is here: https://www.jaxartes.net/ottoman-routing
 - [x] Aleppo railways
 - [x] Clustered transit stops
 - [x] Line colours
+- [ ] Configuratble switch/transfer times
+- [ ] Stop/station open dates
+- [ ] Bosnia, Bulgaria and Serbia railroads
 
 ### Sources
 
@@ -68,13 +70,17 @@ Selected list of sources:
 * [Levantine Heritage](https://www.levantineheritage.com/aidin-personnel.html)
 * [Les tramways belges dans l’Empire ottoman](https://www.levantineheritage.com/pdf/Empire-ottoman-Dussart-Desart.pdf)
 * [Ameli Elektrik](https://archives.saltresearch.org/handle/123456789/129281)
+* [NABATAEA.NET](https://nabataea.net/)
+* [Compagnie Internationale des Wagons-Lits timetable](https://timetableworld.com/ttw-viewer.php?token=c096d95a-f2ae-4990-858c-e389704b4cae)
 
 ### Missing information
 
+- Aleppo tramway: [one source claims it opened before 1914](https://publikationen.uni-tuebingen.de/xmlui/bitstream/handle/10900/130888/Lafi_urban-infrastructure_oa.pdf?sequence=2&isAllowed=y)
 - Baghdad tramway: station names
 - Beirut tramway: station and Turkish line names
 - Damascus tramway: station and line names
 - Istanbul tramway: contradictory information on Haliç and Maçka lines
 - Salonica tramway: station and line names; uncertainty around Şehir İstasyonu stop, third line running along Sadri Paşa Caddesi; lines post-electrification
+- Tripoli tramway: station names
 - JSC railways: opening of Dedeağaç line and stations; operation of Ferecik branch
 - Bosra railway: number of stations in Bosra and their names
